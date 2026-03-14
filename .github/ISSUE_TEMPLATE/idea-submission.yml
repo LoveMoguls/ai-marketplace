@@ -1,0 +1,132 @@
+name: "AI Idea Submission"
+description: "Submit an AI idea or use case"
+title: "[Idea] "
+labels: ["idea"]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: "Idea title"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: "Problem statement"
+    validations:
+      required: true
+
+  - type: textarea
+    id: hypothesis
+    attributes:
+      label: "Hypothesis"
+    validations:
+      required: true
+
+  - type: textarea
+    id: business_value
+    attributes:
+      label: "Business value"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: strategic_area
+    attributes:
+      label: "Strategic area"
+      options:
+        - Credit
+        - Wealth Management
+        - Payments
+        - Risk & Compliance
+        - Operations
+        - Customer Service
+        - IT & Infrastructure
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: arch_pattern
+    attributes:
+      label: "Architecture pattern"
+      options:
+        - RAG
+        - Inference
+        - Traditional ML
+        - Agentic
+        - Multimodal
+        - Not sure
+    validations:
+      required: true
+
+  - type: dropdown
+    id: status
+    attributes:
+      label: "Status"
+      options:
+        - New idea
+        - Under review
+        - In development
+        - In prod
+    validations:
+      required: true
+
+  - type: input
+    id: contact_name
+    attributes:
+      label: "Contact name"
+    validations:
+      required: true
+
+  - type: input
+    id: contact_email
+    attributes:
+      label: "Contact email"
+    validations:
+      required: true
+
+  - type: input
+    id: business_stakeholder
+    attributes:
+      label: "Business stakeholder"
+    validations:
+      required: true
+
+  - type: input
+    id: tech_components
+    attributes:
+      label: "Tech components"
+      description: "Comma-separated"
+    validations:
+      required: false
+
+  - type: input
+    id: source
+    attributes:
+      label: "Source"
+      description: "e.g. hackathon-010"
+    validations:
+      required: true
+
+  - type: input
+    id: pitch_url
+    attributes:
+      label: "Pitch video URL"
+    validations:
+      required: false
+
+  - type: input
+    id: repo_url
+    attributes:
+      label: "Repository URL"
+    validations:
+      required: false
+
+  - type: input
+    id: docs_url
+    attributes:
+      label: "Documentation URL"
+    validations:
+      required: false
