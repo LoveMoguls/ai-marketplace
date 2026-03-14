@@ -21,7 +21,7 @@
       "structured-output",
       "embeddings"
     ],
-    "cluster_id": 0,
+    "cluster_id": 3,
     "cluster_label": "document-intelligence",
     "enabler_candidate": true,
     "scores": {
@@ -61,8 +61,8 @@
       "embeddings",
       "vector-db"
     ],
-    "cluster_id": 4,
-    "cluster_label": "knowledge-retrieval",
+    "cluster_id": 2,
+    "cluster_label": "intelligent-automation-assistants",
     "enabler_candidate": true,
     "scores": {
       "business_value": 9,
@@ -99,8 +99,8 @@
       "anomaly-detection",
       "structured-output"
     ],
-    "cluster_id": 2,
-    "cluster_label": "customer-experience",
+    "cluster_id": 0,
+    "cluster_label": "portfolio-optimization",
     "enabler_candidate": true,
     "scores": {
       "business_value": 8,
@@ -138,7 +138,7 @@
       "structured-output"
     ],
     "cluster_id": 2,
-    "cluster_label": "customer-experience",
+    "cluster_label": "intelligent-automation-assistants",
     "enabler_candidate": true,
     "scores": {
       "business_value": 7,
@@ -175,8 +175,8 @@
       "time-series",
       "structured-output"
     ],
-    "cluster_id": 1,
-    "cluster_label": "risk-detection",
+    "cluster_id": 2,
+    "cluster_label": "intelligent-automation-assistants",
     "enabler_candidate": true,
     "scores": {
       "business_value": 9,
@@ -214,8 +214,8 @@
       "vector-db",
       "knowledge-graph"
     ],
-    "cluster_id": 4,
-    "cluster_label": "knowledge-retrieval",
+    "cluster_id": 2,
+    "cluster_label": "intelligent-automation-assistants",
     "enabler_candidate": true,
     "scores": {
       "business_value": 7,
@@ -252,7 +252,7 @@
       "structured-output",
       "claude-api"
     ],
-    "cluster_id": 0,
+    "cluster_id": 3,
     "cluster_label": "document-intelligence",
     "enabler_candidate": true,
     "scores": {
@@ -292,7 +292,7 @@
       "nlp"
     ],
     "cluster_id": 3,
-    "cluster_label": "operational-automation",
+    "cluster_label": "document-intelligence",
     "enabler_candidate": true,
     "scores": {
       "business_value": 6,
@@ -329,8 +329,8 @@
       "workflow-engine",
       "structured-output"
     ],
-    "cluster_id": 3,
-    "cluster_label": "operational-automation",
+    "cluster_id": 2,
+    "cluster_label": "intelligent-automation-assistants",
     "enabler_candidate": true,
     "scores": {
       "business_value": 6,
@@ -370,7 +370,7 @@
       "structured-output"
     ],
     "cluster_id": 2,
-    "cluster_label": "customer-experience",
+    "cluster_label": "intelligent-automation-assistants",
     "enabler_candidate": true,
     "scores": {
       "business_value": 8,
@@ -408,8 +408,8 @@
       "nlp",
       "structured-output"
     ],
-    "cluster_id": 1,
-    "cluster_label": "risk-detection",
+    "cluster_id": 3,
+    "cluster_label": "document-intelligence",
     "enabler_candidate": true,
     "scores": {
       "business_value": 9,
@@ -447,7 +447,7 @@
       "structured-output"
     ],
     "cluster_id": 1,
-    "cluster_label": "risk-detection",
+    "cluster_label": "anomaly-detection-workflows",
     "enabler_candidate": true,
     "scores": {
       "business_value": 7,
@@ -486,7 +486,7 @@
       "structured-output",
       "embeddings"
     ],
-    "cluster_id": 0,
+    "cluster_id": 3,
     "cluster_label": "document-intelligence",
     "enabler_candidate": true,
     "scores": {
@@ -525,7 +525,7 @@
       "nlp",
       "structured-output"
     ],
-    "cluster_id": 0,
+    "cluster_id": 3,
     "cluster_label": "document-intelligence",
     "enabler_candidate": true,
     "scores": {
@@ -564,8 +564,8 @@
       "knowledge-graph",
       "workflow-engine"
     ],
-    "cluster_id": 3,
-    "cluster_label": "operational-automation",
+    "cluster_id": 1,
+    "cluster_label": "anomaly-detection-workflows",
     "enabler_candidate": true,
     "scores": {
       "business_value": 6,
@@ -604,7 +604,7 @@
       "structured-output"
     ],
     "cluster_id": 2,
-    "cluster_label": "customer-experience",
+    "cluster_label": "intelligent-automation-assistants",
     "enabler_candidate": true,
     "scores": {
       "business_value": 6,
@@ -642,7 +642,7 @@
       "knowledge-graph"
     ],
     "cluster_id": 1,
-    "cluster_label": "risk-detection",
+    "cluster_label": "anomaly-detection-workflows",
     "enabler_candidate": true,
     "scores": {
       "business_value": 9,
@@ -681,8 +681,8 @@
       "structured-output",
       "workflow-engine"
     ],
-    "cluster_id": 2,
-    "cluster_label": "customer-experience",
+    "cluster_id": 3,
+    "cluster_label": "document-intelligence",
     "enabler_candidate": true,
     "scores": {
       "business_value": 8,
@@ -719,9 +719,9 @@
       "structured-output",
       "workflow-engine"
     ],
-    "cluster_id": 3,
-    "cluster_label": "operational-automation",
-    "enabler_candidate": false,
+    "cluster_id": 1,
+    "cluster_label": "anomaly-detection-workflows",
+    "enabler_candidate": true,
     "scores": {
       "business_value": 7,
       "feasibility": 3
@@ -735,5 +735,49 @@
     "processed_at": "2026-03-14T12:00:00Z",
     "upvotes": 0,
     "issue_url": null
+  },
+  {
+    "id": "test-pitch-001",
+    "issue_number": null,
+    "source": "test-pitch",
+    "title": "AI-Powered Risk Assessment Platform",
+    "submitted_by": "Elin",
+    "contact_email": null,
+    "business_stakeholder": null,
+    "submitted_at": "2026-03-14",
+    "status": "New idea",
+    "summary": "An AI-powered risk assessment platform that uses intelligent agents to automate the analysis of financial documents, regulatory compliance, and ESG factors. The system streamlines due diligence processes by extracting key information, identifying risk factors, and providing comprehensive assessments with confidence scores.",
+    "problem": "Manual risk assessment processes are time-consuming, error-prone, and fail to provide comprehensive regulatory compliance analysis for financial institutions evaluating technology sector investments.",
+    "hypothesis": "AI agents can automate document analysis, regulatory compliance checking, and risk factor identification to streamline the due diligence process and provide more accurate, consistent risk assessments.",
+    "business_value": "Dramatically reduce time and cost of risk assessments while improving accuracy and regulatory compliance, enabling faster decision-making on investment opportunities and better risk management.",
+    "strategic_area": "Risk & Compliance",
+    "arch_pattern": "Agentic",
+    "tech_components": [
+      "Decision Agent",
+      "ESG Agent",
+      "Document Processing",
+      "Entity Extraction",
+      "Regulatory Database",
+      "Risk Analysis Pipeline",
+      "Agent Workflow",
+      "PDF Processing",
+      "Excel Integration"
+    ],
+    "cluster_id": 2,
+    "cluster_label": "intelligent-automation-assistants",
+    "enabler_candidate": false,
+    "scores": {
+      "business_value": 8,
+      "feasibility": 7
+    },
+    "links": {
+      "pitch_url": null,
+      "repo_url": null,
+      "docs_url": null
+    },
+    "transcript": "you you you you you you you",
+    "upvotes": 0,
+    "issue_url": null,
+    "processed_at": "2026-03-14T19:44:38.081529+00:00"
   }
 ]

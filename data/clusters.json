@@ -1,37 +1,74 @@
 [
   {
     "id": 0,
-    "label": "document-intelligence",
-    "idea_ids": ["af26-001", "af26-007", "af26-013", "af26-014"],
-    "shared_components": ["pdf-extraction", "claude-api", "structured-output"],
-    "description": "Ideas focused on extracting, summarizing, and analyzing documents such as loan applications, regulatory reports, ESG filings, and financial contracts."
+    "label": "portfolio-optimization",
+    "idea_ids": [
+      "af26-003"
+    ],
+    "shared_components": [],
+    "description": "ML-driven portfolio optimization engine that recommends rebalancing actions based on market conditions, risk appetite, and ESG constraints."
   },
   {
     "id": 1,
-    "label": "risk-detection",
-    "idea_ids": ["af26-005", "af26-011", "af26-012", "af26-017"],
-    "shared_components": ["anomaly-detection", "time-series", "structured-output"],
-    "description": "Ideas centered on detecting anomalies and predicting risks across fraud, credit, trade reconciliation, and payment monitoring."
+    "label": "anomaly-detection-workflows",
+    "idea_ids": [
+      "af26-012",
+      "af26-015",
+      "af26-017",
+      "af26-019"
+    ],
+    "shared_components": [
+      "anomaly-detection",
+      "time-series",
+      "structured-output",
+      "knowledge-graph",
+      "workflow-engine"
+    ],
+    "description": "Systems that detect anomalies and optimize workflows across trade reconciliation, IT incidents, payment fraud, and cross-border payment routing using pattern recognition and time-series analysis."
   },
   {
     "id": 2,
-    "label": "customer-experience",
-    "idea_ids": ["af26-003", "af26-004", "af26-010", "af26-016", "af26-018"],
-    "shared_components": ["claude-api", "structured-output", "nlp"],
-    "description": "Ideas aimed at improving customer-facing processes including complaint handling, onboarding, sentiment analysis, and advisory services."
+    "label": "intelligent-automation-assistants",
+    "idea_ids": [
+      "af26-002",
+      "af26-004",
+      "af26-005",
+      "af26-006",
+      "af26-009",
+      "af26-010",
+      "af26-016",
+      "test-pitch-001"
+    ],
+    "shared_components": [
+      "claude-api",
+      "structured-output",
+      "knowledge-graph",
+      "embeddings",
+      "vector-db",
+      "nlp",
+      "workflow-engine"
+    ],
+    "description": "AI-powered assistants and classifiers that automate KYC screening, complaint routing, fraud detection, knowledge retrieval, code review, onboarding, sentiment analysis, and risk assessment across banking operations."
   },
   {
     "id": 3,
-    "label": "operational-automation",
-    "idea_ids": ["af26-008", "af26-009", "af26-015", "af26-019"],
-    "shared_components": ["claude-api", "workflow-engine", "structured-output"],
-    "description": "Ideas automating internal operational processes such as meeting summarization, code review, incident analysis, and payment routing."
-  },
-  {
-    "id": 4,
-    "label": "knowledge-retrieval",
-    "idea_ids": ["af26-002", "af26-006"],
-    "shared_components": ["claude-api", "embeddings", "vector-db", "knowledge-graph"],
-    "description": "Ideas leveraging retrieval-augmented generation to surface knowledge from internal documentation and compliance data sources."
+    "label": "document-intelligence",
+    "idea_ids": [
+      "af26-001",
+      "af26-007",
+      "af26-008",
+      "af26-011",
+      "af26-013",
+      "af26-014",
+      "af26-018"
+    ],
+    "shared_components": [
+      "pdf-extraction",
+      "claude-api",
+      "structured-output",
+      "embeddings",
+      "nlp"
+    ],
+    "description": "Automated extraction, summarization, and analysis of financial documents including loan applications, regulatory reports, meeting notes, ESG data, contracts, and client briefings using NLP and structured output."
   }
 ]

@@ -5,9 +5,11 @@ Usage:
     python -m pipeline.import_pitches /path/to/pitches/ --source hackathon-010 --create-issues
 """
 import argparse
+import base64
 import json
 import logging
 import os
+import shutil
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -17,6 +19,7 @@ import requests
 from dotenv import load_dotenv
 
 from pipeline.transcribe import transcribe
+from pipeline.extract_frames import extract_frames
 from pipeline.cluster import cluster_ideas
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
@@ -24,9 +27,15 @@ logger = logging.getLogger(__name__)
 
 DATA_DIR = Path(__file__).parent.parent / "data"
 
-EXTRACT_SYSTEM_PROMPT = """You are analyzing a pitch recording transcript from a hackathon or team presentation at SEB (a Nordic bank). The team is presenting an AI idea — a problem they want to solve and their proposed solution.
+EXTRACT_SYSTEM_PROMPT = """You are analyzing a pitch recording from a hackathon or team presentation at SEB (a Nordic bank). You will receive:
+- Key frames extracted from the video (slides, demos, diagrams)
+- An audio transcript of what was said
 
-Extract ALL of the following fields from the transcript. If a field isn't explicitly mentioned, make your best inference from context. Respond with ONLY valid JSON, no markdown fences.
+The team is presenting an AI idea — a problem they want to solve and their proposed solution. Use BOTH the visual content (slides, text on screen, diagrams) and the spoken transcript to understand the full idea.
+
+The pitch may be in Swedish or English — extract fields in English regardless of source language.
+
+Extract ALL of the following fields. If a field isn't explicitly mentioned, make your best inference from context. Respond with ONLY valid JSON, no markdown fences.
 
 {
   "title": "Short descriptive name for the idea (max 8 words)",
@@ -35,30 +44,65 @@ Extract ALL of the following fields from the transcript. If a field isn't explic
   "business_value": "The business value — what impact would this have?",
   "strategic_area": "One of: Credit, Wealth Management, Payments, Risk & Compliance, Operations, Customer Service, IT & Infrastructure, Other",
   "arch_pattern": "One of: RAG, Inference, Traditional ML, Agentic, Multimodal",
-  "tech_components": ["list", "of", "technologies", "mentioned"],
+  "tech_components": ["list", "of", "technologies", "mentioned", "or", "shown"],
   "summary": "2-3 sentence summary of the full idea",
   "business_value_score": 7,
   "feasibility_score": 5,
-  "submitted_by": "Presenter name if mentioned, otherwise null",
-  "business_stakeholder": "Division or team if mentioned, otherwise null"
+  "submitted_by": "Presenter name if mentioned or shown on a slide, otherwise null",
+  "business_stakeholder": "Division or team if mentioned or shown, otherwise null"
 }
 
 Scores: business_value_score 1-10 (how valuable to the bank), feasibility_score 1-10 (how technically feasible).
 """
 
 
-def extract_from_transcript(transcript: str) -> dict:
-    """Send transcript to Claude and extract all idea fields."""
+def extract_from_pitch(transcript: str | None, frame_paths: list[Path]) -> dict:
+    """Send frames + transcript to Claude multimodal API and extract all idea fields."""
     client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
+
+    # Build multimodal content
+    content = []
+
+    # Add frames as images
+    for frame_path in frame_paths:
+        with open(frame_path, "rb") as f:
+            image_data = base64.standard_b64encode(f.read()).decode("utf-8")
+        content.append({
+            "type": "image",
+            "source": {
+                "type": "base64",
+                "media_type": "image/jpeg",
+                "data": image_data,
+            },
+        })
+
+    # Add transcript as text
+    text_parts = []
+    if frame_paths:
+        text_parts.append(f"Above are {len(frame_paths)} key frames extracted from the pitch video.")
+    if transcript:
+        text_parts.append(f"Audio transcript:\n\n{transcript}")
+    else:
+        text_parts.append("No audio transcript available — extract all information from the slides/frames above.")
+
+    content.append({"type": "text", "text": "\n\n".join(text_parts)})
+
     response = client.messages.create(
-        model="claude-sonnet-4-5-20250514",
+        model="claude-sonnet-4-20250514",
         max_tokens=2048,
         system=EXTRACT_SYSTEM_PROMPT,
-        messages=[{"role": "user", "content": f"Pitch transcript:\n\n{transcript}"}],
+        messages=[{"role": "user", "content": content}],
     )
 
     raw = response.content[0].text
-    return json.loads(raw)
+    # Strip markdown code fences if Claude wrapped the JSON
+    cleaned = raw.strip()
+    if cleaned.startswith("```"):
+        cleaned = cleaned.split("\n", 1)[1]  # remove first line
+    if cleaned.endswith("```"):
+        cleaned = cleaned.rsplit("```", 1)[0]
+    cleaned = cleaned.strip()
+    return json.loads(cleaned)
 
 
 def create_github_issue(idea: dict, repo: str, token: str) -> int | None:
@@ -145,20 +189,29 @@ def main():
         idea_id = f"{args.source}-{next_num:03d}"
         logger.info("[%d/%d] %s → %s", i + 1, len(mp4_files), mp4_path.name, idea_id)
 
-        # Transcribe
+        # Extract frames from video
+        frames = extract_frames(str(mp4_path), interval_seconds=5, max_frames=20)
+        logger.info("  Frames: %d extracted", len(frames))
+
+        # Transcribe audio
         transcript = transcribe(str(mp4_path))
-        if not transcript:
-            logger.warning("  Skipping — transcription failed")
+        if transcript:
+            logger.info("  Transcript: %d chars", len(transcript))
+
+        if not frames and not transcript:
+            logger.warning("  Skipping — no frames or transcript extracted")
             continue
 
-        logger.info("  Transcript: %d chars", len(transcript))
-
-        # Extract fields via Claude
+        # Extract fields via Claude (multimodal: frames + transcript)
         try:
-            extracted = extract_from_transcript(transcript)
+            extracted = extract_from_pitch(transcript, frames)
         except Exception as e:
             logger.error("  Extraction failed: %s", e)
             continue
+        finally:
+            # Cleanup temp frame directory
+            if frames:
+                shutil.rmtree(frames[0].parent, ignore_errors=True)
 
         # Build idea
         idea = {

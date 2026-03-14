@@ -38,7 +38,7 @@ def extract_idea(issue_fields: dict, transcript: str | None) -> dict:
 
     client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
     response = client.messages.create(
-        model="claude-sonnet-4-5-20250514",
+        model="claude-sonnet-4-20250514",
         max_tokens=1024,
         system=SYSTEM_PROMPT,
         messages=[{"role": "user", "content": user_content}],
