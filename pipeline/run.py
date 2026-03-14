@@ -11,10 +11,6 @@ import requests
 from dotenv import load_dotenv
 
 from pipeline.parse_issue import parse_issue_body
-from pipeline.transcribe import transcribe
-from pipeline.read_doc import read_document, SUPPORTED_EXTENSIONS
-from pipeline.extract import extract_idea
-from pipeline.cluster import cluster_ideas
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
@@ -58,7 +54,10 @@ def process_issue(issue: dict, source: str, dry_run: bool = False) -> dict:
     body = issue.get("body", "") or ""
     fields = parse_issue_body(body)
 
-    # Transcription + document reading
+    # Transcription + document reading (lazy imports to avoid heavy deps in sync mode)
+    from pipeline.transcribe import transcribe
+    from pipeline.read_doc import read_document, SUPPORTED_EXTENSIONS
+
     mp4_path = RAW_DIR / f"{issue_number}.mp4"
     transcript = None
     doc_text = None
@@ -90,6 +89,7 @@ def process_issue(issue: dict, source: str, dry_run: bool = False) -> dict:
             "scores": {"business_value": 5, "feasibility": 5},
         }
     else:
+        from pipeline.extract import extract_idea
         enriched = extract_idea(fields, extra_context)
 
     idea_id = f"{source}-{issue_number:03d}" if source else f"issue-{issue_number:03d}"
@@ -211,13 +211,21 @@ def main():
         logger.info("No ideas to process.")
         return
 
-    # Cluster all ideas
-    if args.dry_run:
+    # Cluster all ideas (skip for sync-only to avoid heavy deps)
+    clusters_path = DATA_DIR / "clusters.json"
+    if args.sync and new_count == 0:
+        # Sync-only: just write updated ideas, keep existing clusters
+        clusters = []
+        if clusters_path.exists():
+            with open(clusters_path) as f:
+                clusters = json.load(f)
+    elif args.dry_run:
         for idea in existing:
             idea["cluster_id"] = 0
             idea["cluster_label"] = "unclustered"
         clusters = [{"id": 0, "label": "unclustered", "idea_ids": [i["id"] for i in existing], "shared_components": [], "description": "All ideas (dry run)."}]
     else:
+        from pipeline.cluster import cluster_ideas
         existing, clusters = cluster_ideas(existing)
 
     # Write output
