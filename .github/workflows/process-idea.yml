@@ -27,13 +27,7 @@ jobs:
           cache: 'pip'
 
       - name: Install dependencies
-        run: |
-          EVENT=${{ github.event.action }}
-          if [ "$EVENT" = "opened" ]; then
-            pip install anthropic requests python-dotenv sentence-transformers scikit-learn numpy
-          else
-            pip install requests python-dotenv
-          fi
+        run: pip install anthropic requests python-dotenv sentence-transformers scikit-learn numpy
 
       - name: Run pipeline
         env:
