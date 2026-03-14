@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Opportunities & Enablers</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Opportunities & Enablers</h1>
+            <p class="tagline">Discover, filter, and explore AI ideas across the organization</p>
+        </header>
+
+        <div class="stats-bar" id="stats-bar">
+            <!-- Rendered by app.js -->
+        </div>
+
+        <div class="controls">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search ideas by title, summary, or problem..." class="search-input">
+            </div>
+
+            <div class="filter-bar" id="filter-bar">
+                <!-- Rendered by app.js -->
+            </div>
+
+            <div class="controls-row">
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid">Grid</button>
+                    <button class="view-btn" data-view="cluster">Clusters</button>
+                </div>
+                <select id="sort-select" class="sort-select">
+                    <option value="value_desc">Highest Value</option>
+                    <option value="date_desc">Newest First</option>
+                    <option value="alpha">A &rarr; Z</option>
+                </select>
+            </div>
+        </div>
+
+        <main id="cards-container">
+            <!-- Rendered by app.js -->
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
