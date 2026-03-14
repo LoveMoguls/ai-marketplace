@@ -1,0 +1,17 @@
+# Environment
+.env
+venv/
+__pycache__/
+*.pyc
+
+# Media
+raw/pitches/*.mp4
+
+# OS
+.DS_Store
+
+# Node (just in case)
+node_modules/
+
+# Plan docs (local only)
+docs/superpowers/

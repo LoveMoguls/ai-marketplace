@@ -1,0 +1,8 @@
+anthropic
+openai-whisper
+sentence-transformers
+scikit-learn
+requests
+python-dotenv
+numpy
+pytest
