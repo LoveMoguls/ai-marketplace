@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Opportunities & Enablers — SEB CIO Tech Hub</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #14130f;
+  --ink-2: #4a4840;
+  --ink-3: #9a9690;
+  --cream: #faf8f4;
+  --cream-2: #f2efe8;
+  --cream-3: #e8e4da;
+  --green: #1a7a56;
+  --green-light: #eaf5ef;
+  --amber: #b85c1a;
+  --amber-light: #fdf0e6;
+  --blue: #1a4f8a;
+  --blue-light: #e8f0fa;
+  --radius: 10px;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.6;
+  padding: 0;
+}
+
+/* HERO */
+.hero {
+  padding: 72px 40px 56px;
+  max-width: 780px;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--cream-3);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 28px;
+}
+
+.eyebrow-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+h1 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(36px, 5vw, 54px);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -.02em;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+
+h1 em {
+  font-style: italic;
+  color: var(--green);
+}
+
+.tagline {
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--ink-2);
+  max-width: 560px;
+  line-height: 1.65;
+  margin-bottom: 36px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: .01em;
+  transition: opacity .15s;
+}
+.btn-primary:hover { opacity: .8; }
+
+.btn-secondary {
+  color: var(--ink-2);
+  font-size: 13px;
+  font-weight: 400;
+  text-decoration: none;
+  border-bottom: 1px solid var(--cream-3);
+  padding-bottom: 1px;
+}
+
+.stat-row {
+  display: flex;
+  gap: 32px;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--cream-3);
+}
+
+.stat { }
+.stat-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 32px;
+  line-height: 1;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.stat-label {
+  font-size: 12px;
+  color: var(--ink-3);
+  font-weight: 400;
+}
+
+/* BODY */
+.content {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 40px 80px;
+}
+
+.section {
+  margin-top: 56px;
+}
+
+.section-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 20px;
+}
+
+/* TWO-PART SPLIT */
+.parts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.part {
+  background: #fff;
+  border: 1px solid var(--cream-3);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.part-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 13px;
+  color: var(--ink-3);
+  margin-bottom: 12px;
+}
+
+.part h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.part p {
+  font-size: 13px;
+  color: var(--ink-2);
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+
+.part-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.part-features li {
+  font-size: 12px;
+  color: var(--ink-2);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.part-features li::before {
+  content: '→';
+  color: var(--ink-3);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* FLOW */
+.flow {
+  background: #fff;
+  border: 1px solid var(--cream-3);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+}
+
+.flow-step {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 120px;
+}
+
+.flow-step-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.flow-step-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.flow-step-sub {
+  font-size: 11px;
+  color: var(--ink-3);
+  line-height: 1.4;
+}
+
+.flow-arrow {
+  flex-shrink: 0;
+  padding: 0 20px;
+  color: var(--cream-3);
+  font-size: 20px;
+}
+
+/* ROADMAP */
+.roadmap {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--cream-3);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--cream-3);
+}
+
+.phase {
+  background: #fff;
+  display: grid;
+  grid-template-columns: 120px 1fr 100px;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 24px;
+}
+
+.phase-name {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.phase-desc {
+  font-size: 12px;
+  color: var(--ink-2);
+}
+
+.phase-status {
+  font-size: 11px;
+  font-weight: 500;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.s-active { color: var(--amber); }
+.s-next   { color: var(--blue); }
+.s-later  { color: var(--ink-3); }
+
+/* PRINCIPLE CARDS */
+.principles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.principle {
+  padding: 18px;
+  background: #fff;
+  border: 1px solid var(--cream-3);
+  border-radius: var(--radius);
+}
+
+.principle-icon {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.principle h4 {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.principle p {
+  font-size: 12px;
+  color: var(--ink-2);
+  line-height: 1.55;
+}
+
+/* FOOTER */
+.pitch-footer {
+  border-top: 1px solid var(--cream-3);
+  padding: 28px 40px;
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-tag {
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+.footer-tag strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.footer-link {
+  font-size: 12px;
+  color: var(--ink-2);
+  text-decoration: none;
+  border-bottom: 1px solid var(--cream-3);
+  padding-bottom: 1px;
+}
+
+@media (max-width: 640px) {
+  .hero, .content, .pitch-footer { padding-left: 20px; padding-right: 20px; }
+  .parts, .principles { grid-template-columns: 1fr; }
+  .phase { grid-template-columns: 1fr; gap: 4px; }
+  .phase-status { text-align: left; }
+  .stat-row { gap: 20px; flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="eyebrow">
+    <span class="eyebrow-dot"></span>
+    SEB CIO Tech Hub &nbsp;·&nbsp; Internal tool
+  </div>
+
+  <h1>Where AI ideas go<br>to <em>become enablers</em></h1>
+
+  <p class="tagline">
+    We generate great AI ideas — from hackathons, team experiments, and daily work. 
+    This tool captures them, clusters them, and surfaces the best ones in a 
+    shared marketplace anyone at SEB can browse.
+  </p>
+
+  <div class="hero-actions">
+    <a class="btn-primary" href="#">Submit an idea →</a>
+    <a class="btn-secondary" href="#">Browse the marketplace</a>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat">
+      <div class="stat-num">19</div>
+      <div class="stat-label">Ideas seeded from AI Factory</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">7</div>
+      <div class="stat-label">Strategic areas covered</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">0</div>
+      <div class="stat-label">Infrastructure needed to start</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- TWO PARTS -->
+  <div class="section">
+    <p class="section-label">How it works</p>
+    <div class="parts">
+
+      <div class="part">
+        <p class="part-num">01</p>
+        <h3>Intake</h3>
+        <p>Anyone at SEB can submit an idea — through a structured GitHub Issue form. Pitch recordings from hackathons get processed automatically.</p>
+        <ul class="part-features">
+          <li>Structured form: problem, hypothesis, business value, domain</li>
+          <li>Links to pitch video, repo, docs — added anytime</li>
+          <li>MP4 pitch recordings transcribed with AI</li>
+          <li>Contact person always visible — ideas have owners</li>
+        </ul>
+      </div>
+
+      <div class="part">
+        <p class="part-num">02</p>
+        <h3>Marketplace</h3>
+        <p>A clean, browsable site where all processed ideas are presented as cards — filterable by domain, status, tech pattern, and more.</p>
+        <ul class="part-features">
+          <li>Two reading modes: Business view and Engineering view</li>
+          <li>Filter by domain, arch pattern, status, score</li>
+          <li>Cluster view — ideas grouped by theme</li>
+          <li>Enabler detection — shared components across ideas</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FLOW -->
+  <div class="section">
+    <p class="section-label">The pipeline</p>
+    <div class="flow">
+      <div class="flow-step">
+        <span class="flow-step-label">Intake</span>
+        <span class="flow-step-title">GitHub Issue</span>
+        <span class="flow-step-sub">Text form or<br>MP4 pitch</span>
+      </div>
+      <span class="flow-arrow">›</span>
+      <div class="flow-step">
+        <span class="flow-step-label">AI pipeline</span>
+        <span class="flow-step-title">Transcribe</span>
+        <span class="flow-step-sub">Whisper turns<br>speech to text</span>
+      </div>
+      <span class="flow-arrow">›</span>
+      <div class="flow-step">
+        <span class="flow-step-label">AI pipeline</span>
+        <span class="flow-step-title">Extract</span>
+        <span class="flow-step-sub">Claude scores,<br>tags, summarizes</span>
+      </div>
+      <span class="flow-arrow">›</span>
+      <div class="flow-step">
+        <span class="flow-step-label">AI pipeline</span>
+        <span class="flow-step-title">Cluster</span>
+        <span class="flow-step-sub">Groups ideas,<br>finds enablers</span>
+      </div>
+      <span class="flow-arrow">›</span>
+      <div class="flow-step">
+        <span class="flow-step-label">Output</span>
+        <span class="flow-step-title">Marketplace</span>
+        <span class="flow-step-sub">GitHub Pages,<br>live instantly</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROADMAP -->
+  <div class="section">
+    <p class="section-label">Roadmap</p>
+    <div class="roadmap">
+      <div class="phase">
+        <span class="phase-name">Phase 0</span>
+        <span class="phase-desc">Repo structure, data model, GitHub Issue template, card design</span>
+        <span class="phase-status" style="color:var(--green)">✓ Done</span>
+      </div>
+      <div class="phase">
+        <span class="phase-name">Phase 1</span>
+        <span class="phase-desc">AI pipeline — transcription, Claude extraction, clustering, JSON output</span>
+        <span class="phase-status" style="color:var(--green)">✓ Done</span>
+      </div>
+      <div class="phase">
+        <span class="phase-name">Phase 2</span>
+        <span class="phase-desc">Marketplace live on GitHub Pages — filter, search, cluster view</span>
+        <span class="phase-status" style="color:var(--green)">✓ Done</span>
+      </div>
+      <div class="phase">
+        <span class="phase-name">Phase 3</span>
+        <span class="phase-desc">Process all 50 Hackathon 010 pitches as first real run</span>
+        <span class="phase-status s-active">▸ Up next</span>
+      </div>
+      <div class="phase">
+        <span class="phase-name">Phase 4</span>
+        <span class="phase-desc">GCP integration — move pipeline to Cloud Run, webhook-triggered</span>
+        <span class="phase-status s-later">Planned</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRINCIPLES -->
+  <div class="section">
+    <p class="section-label">Design principles</p>
+    <div class="principles">
+      <div class="principle">
+        <div class="principle-icon">⬡</div>
+        <h4>No infrastructure in phase 1</h4>
+        <p>GitHub Issues as intake. Local pipeline. GitHub Pages as output. Zero hosting cost, zero GCP dependency.</p>
+      </div>
+      <div class="principle">
+        <div class="principle-icon">⬡</div>
+        <h4>Ideas have owners</h4>
+        <p>Every idea shows who submitted it and how to reach them. Good ideas should have a face.</p>
+      </div>
+      <div class="principle">
+        <div class="principle-icon">⬡</div>
+        <h4>Built for two audiences</h4>
+        <p>Business view for C-level and domain leads. Engineering view for architects and developers. Same card, two lenses.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="pitch-footer">
+  <span class="footer-tag">Built by <strong>SEB CIO Tech Hub</strong> &nbsp;·&nbsp; March 2026</span>
+  <a class="footer-link" href="#">View the repo →</a>
+</div>
+
+</body>
+</html>
