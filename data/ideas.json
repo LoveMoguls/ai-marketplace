@@ -22,7 +22,7 @@
       "embeddings"
     ],
     "cluster_id": 3,
-    "cluster_label": "document-intelligence",
+    "cluster_label": "risk-detection-analytics",
     "enabler_candidate": true,
     "scores": {
       "business_value": 8,
@@ -61,8 +61,8 @@
       "embeddings",
       "vector-db"
     ],
-    "cluster_id": 2,
-    "cluster_label": "intelligent-automation-assistants",
+    "cluster_id": 1,
+    "cluster_label": "intelligent-assistant-automation",
     "enabler_candidate": true,
     "scores": {
       "business_value": 9,
@@ -99,8 +99,8 @@
       "anomaly-detection",
       "structured-output"
     ],
-    "cluster_id": 0,
-    "cluster_label": "portfolio-optimization",
+    "cluster_id": 3,
+    "cluster_label": "risk-detection-analytics",
     "enabler_candidate": true,
     "scores": {
       "business_value": 8,
@@ -137,8 +137,8 @@
       "claude-api",
       "structured-output"
     ],
-    "cluster_id": 2,
-    "cluster_label": "intelligent-automation-assistants",
+    "cluster_id": 1,
+    "cluster_label": "intelligent-assistant-automation",
     "enabler_candidate": true,
     "scores": {
       "business_value": 7,
@@ -175,8 +175,8 @@
       "time-series",
       "structured-output"
     ],
-    "cluster_id": 2,
-    "cluster_label": "intelligent-automation-assistants",
+    "cluster_id": 3,
+    "cluster_label": "risk-detection-analytics",
     "enabler_candidate": true,
     "scores": {
       "business_value": 9,
@@ -214,8 +214,8 @@
       "vector-db",
       "knowledge-graph"
     ],
-    "cluster_id": 2,
-    "cluster_label": "intelligent-automation-assistants",
+    "cluster_id": 1,
+    "cluster_label": "intelligent-assistant-automation",
     "enabler_candidate": true,
     "scores": {
       "business_value": 7,
@@ -252,7 +252,7 @@
       "structured-output",
       "claude-api"
     ],
-    "cluster_id": 3,
+    "cluster_id": 2,
     "cluster_label": "document-intelligence",
     "enabler_candidate": true,
     "scores": {
@@ -291,7 +291,7 @@
       "structured-output",
       "nlp"
     ],
-    "cluster_id": 3,
+    "cluster_id": 2,
     "cluster_label": "document-intelligence",
     "enabler_candidate": true,
     "scores": {
@@ -329,8 +329,8 @@
       "workflow-engine",
       "structured-output"
     ],
-    "cluster_id": 2,
-    "cluster_label": "intelligent-automation-assistants",
+    "cluster_id": 1,
+    "cluster_label": "intelligent-assistant-automation",
     "enabler_candidate": true,
     "scores": {
       "business_value": 6,
@@ -369,8 +369,8 @@
       "workflow-engine",
       "structured-output"
     ],
-    "cluster_id": 2,
-    "cluster_label": "intelligent-automation-assistants",
+    "cluster_id": 1,
+    "cluster_label": "intelligent-assistant-automation",
     "enabler_candidate": true,
     "scores": {
       "business_value": 8,
@@ -409,7 +409,7 @@
       "structured-output"
     ],
     "cluster_id": 3,
-    "cluster_label": "document-intelligence",
+    "cluster_label": "risk-detection-analytics",
     "enabler_candidate": true,
     "scores": {
       "business_value": 9,
@@ -446,8 +446,8 @@
       "time-series",
       "structured-output"
     ],
-    "cluster_id": 1,
-    "cluster_label": "anomaly-detection-workflows",
+    "cluster_id": 0,
+    "cluster_label": "cross-border-payment-optimization",
     "enabler_candidate": true,
     "scores": {
       "business_value": 7,
@@ -486,7 +486,7 @@
       "structured-output",
       "embeddings"
     ],
-    "cluster_id": 3,
+    "cluster_id": 2,
     "cluster_label": "document-intelligence",
     "enabler_candidate": true,
     "scores": {
@@ -525,7 +525,7 @@
       "nlp",
       "structured-output"
     ],
-    "cluster_id": 3,
+    "cluster_id": 2,
     "cluster_label": "document-intelligence",
     "enabler_candidate": true,
     "scores": {
@@ -564,8 +564,8 @@
       "knowledge-graph",
       "workflow-engine"
     ],
-    "cluster_id": 1,
-    "cluster_label": "anomaly-detection-workflows",
+    "cluster_id": 3,
+    "cluster_label": "risk-detection-analytics",
     "enabler_candidate": true,
     "scores": {
       "business_value": 6,
@@ -603,8 +603,8 @@
       "claude-api",
       "structured-output"
     ],
-    "cluster_id": 2,
-    "cluster_label": "intelligent-automation-assistants",
+    "cluster_id": 3,
+    "cluster_label": "risk-detection-analytics",
     "enabler_candidate": true,
     "scores": {
       "business_value": 6,
@@ -641,8 +641,8 @@
       "time-series",
       "knowledge-graph"
     ],
-    "cluster_id": 1,
-    "cluster_label": "anomaly-detection-workflows",
+    "cluster_id": 3,
+    "cluster_label": "risk-detection-analytics",
     "enabler_candidate": true,
     "scores": {
       "business_value": 9,
@@ -681,8 +681,8 @@
       "structured-output",
       "workflow-engine"
     ],
-    "cluster_id": 3,
-    "cluster_label": "document-intelligence",
+    "cluster_id": 1,
+    "cluster_label": "intelligent-assistant-automation",
     "enabler_candidate": true,
     "scores": {
       "business_value": 8,
@@ -719,8 +719,8 @@
       "structured-output",
       "workflow-engine"
     ],
-    "cluster_id": 1,
-    "cluster_label": "anomaly-detection-workflows",
+    "cluster_id": 0,
+    "cluster_label": "cross-border-payment-optimization",
     "enabler_candidate": true,
     "scores": {
       "business_value": 7,
@@ -763,8 +763,8 @@
       "PDF Processing",
       "Excel Integration"
     ],
-    "cluster_id": 2,
-    "cluster_label": "intelligent-automation-assistants",
+    "cluster_id": 1,
+    "cluster_label": "intelligent-assistant-automation",
     "enabler_candidate": false,
     "scores": {
       "business_value": 8,
@@ -779,5 +779,39 @@
     "upvotes": 0,
     "issue_url": null,
     "processed_at": "2026-03-14T19:44:38.081529+00:00"
+  },
+  {
+    "id": "github-002",
+    "issue_number": 2,
+    "source": "hackathon-010",
+    "title": "APIs auto maker",
+    "submitted_by": "Christopher \u00c5hl",
+    "contact_email": "chris",
+    "business_stakeholder": "qga",
+    "submitted_at": "2026-03-14",
+    "status": null,
+    "summary": "An API automation solution focused on speeding up API development and management processes. The idea aims to automate various aspects of API creation, testing, or deployment to improve development velocity.",
+    "problem": "API Automation",
+    "hypothesis": "speed",
+    "business_value": "gg",
+    "strategic_area": "IT & Infrastructure",
+    "arch_pattern": "Traditional ML",
+    "tech_components": [],
+    "cluster_id": 1,
+    "cluster_label": "intelligent-assistant-automation",
+    "enabler_candidate": false,
+    "scores": {
+      "business_value": 6,
+      "feasibility": 7
+    },
+    "links": {
+      "pitch_url": null,
+      "repo_url": null,
+      "docs_url": null
+    },
+    "transcript": null,
+    "upvotes": 0,
+    "issue_url": "https://github.com/LoveMoguls/ai-marketplace/issues/2",
+    "processed_at": "2026-03-14T20:11:07.597003+00:00"
   }
 ]
