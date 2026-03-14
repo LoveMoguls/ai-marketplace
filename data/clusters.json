@@ -1,77 +1,78 @@
 [
   {
     "id": 0,
-    "label": "cross-border-payment-optimization",
+    "label": "financial-document-intelligence",
     "idea_ids": [
+      "af26-001",
+      "af26-003",
+      "af26-007",
+      "af26-011",
       "af26-012",
+      "af26-013",
+      "af26-014",
+      "af26-018",
       "af26-019"
     ],
     "shared_components": [
+      "pdf-extraction",
+      "claude-api",
+      "structured-output",
+      "embeddings",
       "time-series",
-      "structured-output"
+      "anomaly-detection",
+      "nlp",
+      "workflow-engine"
     ],
-    "description": "Optimize financial transactions and reconciliation processes through pattern recognition and intelligent routing analysis."
+    "description": "AI-powered extraction, analysis, and optimization of financial documents, regulatory reports, and transaction data to accelerate decisioning and compliance across banking operations."
   },
   {
     "id": 1,
-    "label": "intelligent-assistant-automation",
+    "label": "knowledge-management-assistant",
     "idea_ids": [
-      "af26-002",
-      "af26-004",
       "af26-006",
-      "af26-009",
-      "af26-010",
-      "af26-018",
-      "test-pitch-001",
+      "af26-008",
+      "af26-016",
       "github-002"
     ],
     "shared_components": [
       "claude-api",
+      "speech-to-text",
       "structured-output",
-      "knowledge-graph",
-      "embeddings",
-      "vector-db",
-      "workflow-engine"
+      "nlp"
     ],
-    "description": "AI-powered assistants and copilots that automate knowledge work, compliance screening, and advisory tasks across banking operations."
+    "description": "Conversational AI assistants that summarize meetings, answer internal questions, and analyze customer sentiment using RAG and NLP technologies."
   },
   {
     "id": 2,
-    "label": "document-intelligence",
+    "label": "transaction-anomaly-detection",
     "idea_ids": [
-      "af26-007",
-      "af26-008",
-      "af26-013",
-      "af26-014"
-    ],
-    "shared_components": [
-      "pdf-extraction",
-      "structured-output",
-      "claude-api",
-      "nlp"
-    ],
-    "description": "Automated extraction, analysis, and generation of regulatory reports and structured data from unstructured documents."
-  },
-  {
-    "id": 3,
-    "label": "risk-detection-analytics",
-    "idea_ids": [
-      "af26-001",
-      "af26-003",
       "af26-005",
-      "af26-011",
       "af26-015",
-      "af26-016",
       "af26-017"
     ],
     "shared_components": [
-      "claude-api",
-      "structured-output",
-      "time-series",
       "anomaly-detection",
-      "nlp",
+      "time-series",
       "knowledge-graph"
     ],
-    "description": "Real-time monitoring and predictive analytics systems for fraud detection, credit risk assessment, and operational anomaly identification."
+    "description": "Real-time anomaly detection systems that identify fraud, operational errors, and suspicious patterns across payments, transactions, and IT incidents."
+  },
+  {
+    "id": 3,
+    "label": "compliance-workflow-automation",
+    "idea_ids": [
+      "af26-002",
+      "af26-004",
+      "af26-009",
+      "af26-010",
+      "test-pitch-001",
+      "github-001"
+    ],
+    "shared_components": [
+      "claude-api",
+      "structured-output",
+      "workflow-engine"
+    ],
+    "description": "AI-assisted workflow automation for KYC screening, customer onboarding, complaint routing, and risk assessment to accelerate compliance and operational processes."
   }
 ]

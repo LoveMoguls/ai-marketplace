@@ -21,8 +21,8 @@
       "structured-output",
       "embeddings"
     ],
-    "cluster_id": 3,
-    "cluster_label": "risk-detection-analytics",
+    "cluster_id": 0,
+    "cluster_label": "financial-document-intelligence",
     "enabler_candidate": true,
     "scores": {
       "business_value": 8,
@@ -61,8 +61,8 @@
       "embeddings",
       "vector-db"
     ],
-    "cluster_id": 1,
-    "cluster_label": "intelligent-assistant-automation",
+    "cluster_id": 3,
+    "cluster_label": "compliance-workflow-automation",
     "enabler_candidate": true,
     "scores": {
       "business_value": 9,
@@ -99,8 +99,8 @@
       "anomaly-detection",
       "structured-output"
     ],
-    "cluster_id": 3,
-    "cluster_label": "risk-detection-analytics",
+    "cluster_id": 0,
+    "cluster_label": "financial-document-intelligence",
     "enabler_candidate": true,
     "scores": {
       "business_value": 8,
@@ -137,8 +137,8 @@
       "claude-api",
       "structured-output"
     ],
-    "cluster_id": 1,
-    "cluster_label": "intelligent-assistant-automation",
+    "cluster_id": 3,
+    "cluster_label": "compliance-workflow-automation",
     "enabler_candidate": true,
     "scores": {
       "business_value": 7,
@@ -175,8 +175,8 @@
       "time-series",
       "structured-output"
     ],
-    "cluster_id": 3,
-    "cluster_label": "risk-detection-analytics",
+    "cluster_id": 2,
+    "cluster_label": "transaction-anomaly-detection",
     "enabler_candidate": true,
     "scores": {
       "business_value": 9,
@@ -215,7 +215,7 @@
       "knowledge-graph"
     ],
     "cluster_id": 1,
-    "cluster_label": "intelligent-assistant-automation",
+    "cluster_label": "knowledge-management-assistant",
     "enabler_candidate": true,
     "scores": {
       "business_value": 7,
@@ -252,8 +252,8 @@
       "structured-output",
       "claude-api"
     ],
-    "cluster_id": 2,
-    "cluster_label": "document-intelligence",
+    "cluster_id": 0,
+    "cluster_label": "financial-document-intelligence",
     "enabler_candidate": true,
     "scores": {
       "business_value": 8,
@@ -291,8 +291,8 @@
       "structured-output",
       "nlp"
     ],
-    "cluster_id": 2,
-    "cluster_label": "document-intelligence",
+    "cluster_id": 1,
+    "cluster_label": "knowledge-management-assistant",
     "enabler_candidate": true,
     "scores": {
       "business_value": 6,
@@ -329,8 +329,8 @@
       "workflow-engine",
       "structured-output"
     ],
-    "cluster_id": 1,
-    "cluster_label": "intelligent-assistant-automation",
+    "cluster_id": 3,
+    "cluster_label": "compliance-workflow-automation",
     "enabler_candidate": true,
     "scores": {
       "business_value": 6,
@@ -369,8 +369,8 @@
       "workflow-engine",
       "structured-output"
     ],
-    "cluster_id": 1,
-    "cluster_label": "intelligent-assistant-automation",
+    "cluster_id": 3,
+    "cluster_label": "compliance-workflow-automation",
     "enabler_candidate": true,
     "scores": {
       "business_value": 8,
@@ -408,8 +408,8 @@
       "nlp",
       "structured-output"
     ],
-    "cluster_id": 3,
-    "cluster_label": "risk-detection-analytics",
+    "cluster_id": 0,
+    "cluster_label": "financial-document-intelligence",
     "enabler_candidate": true,
     "scores": {
       "business_value": 9,
@@ -447,7 +447,7 @@
       "structured-output"
     ],
     "cluster_id": 0,
-    "cluster_label": "cross-border-payment-optimization",
+    "cluster_label": "financial-document-intelligence",
     "enabler_candidate": true,
     "scores": {
       "business_value": 7,
@@ -486,8 +486,8 @@
       "structured-output",
       "embeddings"
     ],
-    "cluster_id": 2,
-    "cluster_label": "document-intelligence",
+    "cluster_id": 0,
+    "cluster_label": "financial-document-intelligence",
     "enabler_candidate": true,
     "scores": {
       "business_value": 7,
@@ -525,8 +525,8 @@
       "nlp",
       "structured-output"
     ],
-    "cluster_id": 2,
-    "cluster_label": "document-intelligence",
+    "cluster_id": 0,
+    "cluster_label": "financial-document-intelligence",
     "enabler_candidate": true,
     "scores": {
       "business_value": 7,
@@ -564,8 +564,8 @@
       "knowledge-graph",
       "workflow-engine"
     ],
-    "cluster_id": 3,
-    "cluster_label": "risk-detection-analytics",
+    "cluster_id": 2,
+    "cluster_label": "transaction-anomaly-detection",
     "enabler_candidate": true,
     "scores": {
       "business_value": 6,
@@ -603,8 +603,8 @@
       "claude-api",
       "structured-output"
     ],
-    "cluster_id": 3,
-    "cluster_label": "risk-detection-analytics",
+    "cluster_id": 1,
+    "cluster_label": "knowledge-management-assistant",
     "enabler_candidate": true,
     "scores": {
       "business_value": 6,
@@ -641,8 +641,8 @@
       "time-series",
       "knowledge-graph"
     ],
-    "cluster_id": 3,
-    "cluster_label": "risk-detection-analytics",
+    "cluster_id": 2,
+    "cluster_label": "transaction-anomaly-detection",
     "enabler_candidate": true,
     "scores": {
       "business_value": 9,
@@ -681,8 +681,8 @@
       "structured-output",
       "workflow-engine"
     ],
-    "cluster_id": 1,
-    "cluster_label": "intelligent-assistant-automation",
+    "cluster_id": 0,
+    "cluster_label": "financial-document-intelligence",
     "enabler_candidate": true,
     "scores": {
       "business_value": 8,
@@ -720,7 +720,7 @@
       "workflow-engine"
     ],
     "cluster_id": 0,
-    "cluster_label": "cross-border-payment-optimization",
+    "cluster_label": "financial-document-intelligence",
     "enabler_candidate": true,
     "scores": {
       "business_value": 7,
@@ -763,8 +763,8 @@
       "PDF Processing",
       "Excel Integration"
     ],
-    "cluster_id": 1,
-    "cluster_label": "intelligent-assistant-automation",
+    "cluster_id": 3,
+    "cluster_label": "compliance-workflow-automation",
     "enabler_candidate": false,
     "scores": {
       "business_value": 8,
@@ -798,7 +798,7 @@
     "arch_pattern": "Traditional ML",
     "tech_components": [],
     "cluster_id": 1,
-    "cluster_label": "intelligent-assistant-automation",
+    "cluster_label": "knowledge-management-assistant",
     "enabler_candidate": false,
     "scores": {
       "business_value": 6,
@@ -813,5 +813,47 @@
     "upvotes": 0,
     "issue_url": "https://github.com/LoveMoguls/ai-marketplace/issues/2",
     "processed_at": "2026-03-14T20:21:23.953555+00:00"
+  },
+  {
+    "id": "github-001",
+    "issue_number": 1,
+    "source": "test-pitch",
+    "title": "AI-Powered Banking Risk Assessment Platform",
+    "submitted_by": "Elin",
+    "contact_email": null,
+    "business_stakeholder": null,
+    "submitted_at": "2026-03-14",
+    "status": "New idea",
+    "summary": "An AI-powered platform that automates banking risk assessment by analyzing documents, extracting financial metrics, and providing real-time risk classification with regulatory compliance checking. The solution aims to reduce assessment time from weeks to hours while improving accuracy and enabling automated decision-making for loans and partnerships.",
+    "problem": "Manual risk assessment processes are slow, error-prone, and fail to provide comprehensive regulatory compliance analysis for banking operations",
+    "hypothesis": "AI can automate document analysis, extract key financial metrics, and provide real-time risk classification with regulatory compliance checking to streamline banking risk assessment workflows",
+    "business_value": "Reduces risk assessment time from weeks to hours, improves regulatory compliance accuracy, and enables automated decision-making for loan approvals and business partnerships",
+    "strategic_area": "Risk & Compliance",
+    "arch_pattern": "RAG",
+    "tech_components": [
+      "document parsing",
+      "entity extraction",
+      "regulatory database",
+      "risk scoring",
+      "workflow automation",
+      "compliance checking",
+      "audit trails"
+    ],
+    "cluster_id": 3,
+    "cluster_label": "compliance-workflow-automation",
+    "enabler_candidate": false,
+    "scores": {
+      "business_value": 9,
+      "feasibility": 7
+    },
+    "links": {
+      "pitch_url": null,
+      "repo_url": null,
+      "docs_url": null
+    },
+    "transcript": "--- Additional details ---\n\n_Imported from pitch recording. Transcript available in data._",
+    "upvotes": 0,
+    "issue_url": "https://github.com/LoveMoguls/ai-marketplace/issues/1",
+    "processed_at": "2026-03-14T20:33:23.774167+00:00"
   }
 ]
