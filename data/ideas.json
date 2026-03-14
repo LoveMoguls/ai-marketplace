@@ -6,7 +6,7 @@
     "title": "Automated Loan Document Summarizer",
     "submitted_by": "Erik Lindqvist",
     "contact_email": "erik.lindqvist@seb.se",
-    "business_stakeholder": "Anna Bergström",
+    "business_stakeholder": "Anna Bergstr\u00f6m",
     "submitted_at": "2026-03-02",
     "status": "In development",
     "summary": "Automatically summarize and extract key terms from loan applications, credit memos, and supporting documents to accelerate credit decisioning.",
@@ -15,14 +15,28 @@
     "business_value": "Faster credit decisions, reduced operational cost, improved customer experience through shorter turnaround times.",
     "strategic_area": "Credit",
     "arch_pattern": "RAG",
-    "tech_components": ["pdf-extraction", "claude-api", "structured-output", "embeddings"],
+    "tech_components": [
+      "pdf-extraction",
+      "claude-api",
+      "structured-output",
+      "embeddings"
+    ],
     "cluster_id": 0,
     "cluster_label": "document-intelligence",
     "enabler_candidate": true,
-    "scores": { "business_value": 8, "feasibility": 7 },
-    "links": { "pitch_url": "https://confluence.seb.se/ai-factory/pitch/af26-001", "repo_url": null, "docs_url": null },
+    "scores": {
+      "business_value": 8,
+      "feasibility": 7
+    },
+    "links": {
+      "pitch_url": "https://confluence.seb.se/ai-factory/pitch/af26-001",
+      "repo_url": null,
+      "docs_url": null
+    },
     "transcript": null,
-    "processed_at": "2026-03-14T12:00:00Z"
+    "processed_at": "2026-03-14T12:00:00Z",
+    "upvotes": 1,
+    "issue_url": null
   },
   {
     "id": "af26-002",
@@ -40,21 +54,36 @@
     "business_value": "Reduced compliance risk, faster customer onboarding, lower cost per KYC review, and improved regulatory audit readiness.",
     "strategic_area": "Risk & Compliance",
     "arch_pattern": "RAG",
-    "tech_components": ["claude-api", "structured-output", "knowledge-graph", "embeddings", "vector-db"],
+    "tech_components": [
+      "claude-api",
+      "structured-output",
+      "knowledge-graph",
+      "embeddings",
+      "vector-db"
+    ],
     "cluster_id": 4,
     "cluster_label": "knowledge-retrieval",
     "enabler_candidate": true,
-    "scores": { "business_value": 9, "feasibility": 5 },
-    "links": { "pitch_url": "https://confluence.seb.se/ai-factory/pitch/af26-002", "repo_url": "https://github.com/seb-ai-factory/kyc-assistant", "docs_url": null },
+    "scores": {
+      "business_value": 9,
+      "feasibility": 5
+    },
+    "links": {
+      "pitch_url": "https://confluence.seb.se/ai-factory/pitch/af26-002",
+      "repo_url": "https://github.com/seb-ai-factory/kyc-assistant",
+      "docs_url": null
+    },
     "transcript": null,
-    "processed_at": "2026-03-14T12:00:00Z"
+    "processed_at": "2026-03-14T12:00:00Z",
+    "upvotes": 0,
+    "issue_url": null
   },
   {
     "id": "af26-003",
     "issue_number": null,
     "source": "ai-factory-2026",
     "title": "Investment Portfolio Optimizer",
-    "submitted_by": "Johan Nyström",
+    "submitted_by": "Johan Nystr\u00f6m",
     "contact_email": "johan.nystrom@seb.se",
     "business_stakeholder": "Karin Holm",
     "submitted_at": "2026-03-03",
@@ -65,14 +94,27 @@
     "business_value": "Improved investment returns for clients, competitive differentiation in wealth advisory, and scalable portfolio management.",
     "strategic_area": "Wealth Management",
     "arch_pattern": "Traditional ML",
-    "tech_components": ["time-series", "anomaly-detection", "structured-output"],
+    "tech_components": [
+      "time-series",
+      "anomaly-detection",
+      "structured-output"
+    ],
     "cluster_id": 2,
     "cluster_label": "customer-experience",
     "enabler_candidate": true,
-    "scores": { "business_value": 8, "feasibility": 4 },
-    "links": { "pitch_url": null, "repo_url": null, "docs_url": null },
+    "scores": {
+      "business_value": 8,
+      "feasibility": 4
+    },
+    "links": {
+      "pitch_url": null,
+      "repo_url": null,
+      "docs_url": null
+    },
     "transcript": null,
-    "processed_at": "2026-03-14T12:00:00Z"
+    "processed_at": "2026-03-14T12:00:00Z",
+    "upvotes": 4,
+    "issue_url": null
   },
   {
     "id": "af26-004",
@@ -90,14 +132,27 @@
     "business_value": "Faster complaint resolution, better regulatory reporting on complaint trends, and improved customer satisfaction scores.",
     "strategic_area": "Customer Service",
     "arch_pattern": "Inference",
-    "tech_components": ["nlp", "claude-api", "structured-output"],
+    "tech_components": [
+      "nlp",
+      "claude-api",
+      "structured-output"
+    ],
     "cluster_id": 2,
     "cluster_label": "customer-experience",
     "enabler_candidate": true,
-    "scores": { "business_value": 7, "feasibility": 8 },
-    "links": { "pitch_url": null, "repo_url": "https://github.com/seb-ai-factory/complaint-classifier", "docs_url": null },
+    "scores": {
+      "business_value": 7,
+      "feasibility": 8
+    },
+    "links": {
+      "pitch_url": null,
+      "repo_url": "https://github.com/seb-ai-factory/complaint-classifier",
+      "docs_url": null
+    },
     "transcript": null,
-    "processed_at": "2026-03-14T12:00:00Z"
+    "processed_at": "2026-03-14T12:00:00Z",
+    "upvotes": 3,
+    "issue_url": null
   },
   {
     "id": "af26-005",
@@ -115,21 +170,34 @@
     "business_value": "Reduced fraud losses, lower false positive rate improving customer experience, and faster detection of emerging fraud patterns.",
     "strategic_area": "Risk & Compliance",
     "arch_pattern": "Traditional ML",
-    "tech_components": ["anomaly-detection", "time-series", "structured-output"],
+    "tech_components": [
+      "anomaly-detection",
+      "time-series",
+      "structured-output"
+    ],
     "cluster_id": 1,
     "cluster_label": "risk-detection",
     "enabler_candidate": true,
-    "scores": { "business_value": 9, "feasibility": 6 },
-    "links": { "pitch_url": "https://confluence.seb.se/ai-factory/pitch/af26-005", "repo_url": null, "docs_url": null },
+    "scores": {
+      "business_value": 9,
+      "feasibility": 6
+    },
+    "links": {
+      "pitch_url": "https://confluence.seb.se/ai-factory/pitch/af26-005",
+      "repo_url": null,
+      "docs_url": null
+    },
     "transcript": null,
-    "processed_at": "2026-03-14T12:00:00Z"
+    "processed_at": "2026-03-14T12:00:00Z",
+    "upvotes": 3,
+    "issue_url": null
   },
   {
     "id": "af26-006",
     "issue_number": null,
     "source": "ai-factory-2026",
     "title": "Internal Knowledge Base Chatbot",
-    "submitted_by": "Astrid Wikström",
+    "submitted_by": "Astrid Wikstr\u00f6m",
     "contact_email": "astrid.wikstrom@seb.se",
     "business_stakeholder": "Per Johansson",
     "submitted_at": "2026-03-05",
@@ -140,14 +208,28 @@
     "business_value": "Increased employee productivity, reduced support ticket volume, and faster onboarding for new employees.",
     "strategic_area": "Operations",
     "arch_pattern": "RAG",
-    "tech_components": ["claude-api", "embeddings", "vector-db", "knowledge-graph"],
+    "tech_components": [
+      "claude-api",
+      "embeddings",
+      "vector-db",
+      "knowledge-graph"
+    ],
     "cluster_id": 4,
     "cluster_label": "knowledge-retrieval",
     "enabler_candidate": true,
-    "scores": { "business_value": 7, "feasibility": 7 },
-    "links": { "pitch_url": null, "repo_url": "https://github.com/seb-ai-factory/kb-chatbot", "docs_url": "https://confluence.seb.se/ai-factory/docs/kb-chatbot" },
+    "scores": {
+      "business_value": 7,
+      "feasibility": 7
+    },
+    "links": {
+      "pitch_url": null,
+      "repo_url": "https://github.com/seb-ai-factory/kb-chatbot",
+      "docs_url": "https://confluence.seb.se/ai-factory/docs/kb-chatbot"
+    },
     "transcript": null,
-    "processed_at": "2026-03-14T12:00:00Z"
+    "processed_at": "2026-03-14T12:00:00Z",
+    "upvotes": 2,
+    "issue_url": null
   },
   {
     "id": "af26-007",
@@ -156,7 +238,7 @@
     "title": "Regulatory Report Generator",
     "submitted_by": "Nils Sandberg",
     "contact_email": "nils.sandberg@seb.se",
-    "business_stakeholder": "Camilla Öberg",
+    "business_stakeholder": "Camilla \u00d6berg",
     "submitted_at": "2026-03-05",
     "status": "Under review",
     "summary": "Automated generation of regulatory reports (SFDR, Pillar 3, MREL) by extracting data from internal systems and formatting to regulatory templates.",
@@ -165,21 +247,34 @@
     "business_value": "Reduced regulatory risk, faster report submission, and freed-up resources in the compliance team.",
     "strategic_area": "Risk & Compliance",
     "arch_pattern": "RAG",
-    "tech_components": ["pdf-extraction", "structured-output", "claude-api"],
+    "tech_components": [
+      "pdf-extraction",
+      "structured-output",
+      "claude-api"
+    ],
     "cluster_id": 0,
     "cluster_label": "document-intelligence",
     "enabler_candidate": true,
-    "scores": { "business_value": 8, "feasibility": 5 },
-    "links": { "pitch_url": null, "repo_url": null, "docs_url": null },
+    "scores": {
+      "business_value": 8,
+      "feasibility": 5
+    },
+    "links": {
+      "pitch_url": null,
+      "repo_url": null,
+      "docs_url": null
+    },
     "transcript": null,
-    "processed_at": "2026-03-14T12:00:00Z"
+    "processed_at": "2026-03-14T12:00:00Z",
+    "upvotes": 1,
+    "issue_url": null
   },
   {
     "id": "af26-008",
     "issue_number": null,
     "source": "ai-factory-2026",
     "title": "Meeting Notes Summarizer",
-    "submitted_by": "Lina Håkansson",
+    "submitted_by": "Lina H\u00e5kansson",
     "contact_email": "lina.hakansson@seb.se",
     "business_stakeholder": "Oscar Nilsson",
     "submitted_at": "2026-03-06",
@@ -190,21 +285,35 @@
     "business_value": "Better organizational memory, accountability for action items, and reduced time spent on manual note-taking.",
     "strategic_area": "Operations",
     "arch_pattern": "Multimodal",
-    "tech_components": ["speech-to-text", "claude-api", "structured-output", "nlp"],
+    "tech_components": [
+      "speech-to-text",
+      "claude-api",
+      "structured-output",
+      "nlp"
+    ],
     "cluster_id": 3,
     "cluster_label": "operational-automation",
     "enabler_candidate": true,
-    "scores": { "business_value": 6, "feasibility": 7 },
-    "links": { "pitch_url": null, "repo_url": "https://github.com/seb-ai-factory/meeting-summarizer", "docs_url": null },
+    "scores": {
+      "business_value": 6,
+      "feasibility": 7
+    },
+    "links": {
+      "pitch_url": null,
+      "repo_url": "https://github.com/seb-ai-factory/meeting-summarizer",
+      "docs_url": null
+    },
     "transcript": null,
-    "processed_at": "2026-03-14T12:00:00Z"
+    "processed_at": "2026-03-14T12:00:00Z",
+    "upvotes": 5,
+    "issue_url": null
   },
   {
     "id": "af26-009",
     "issue_number": null,
     "source": "ai-factory-2026",
     "title": "Code Review Assistant",
-    "submitted_by": "Daniel Ekström",
+    "submitted_by": "Daniel Ekstr\u00f6m",
     "contact_email": "daniel.ekstrom@seb.se",
     "business_stakeholder": "Fredrik Larsson",
     "submitted_at": "2026-03-06",
@@ -215,21 +324,34 @@
     "business_value": "Improved code quality, reduced security vulnerabilities in production, and faster development cycle times.",
     "strategic_area": "IT & Infrastructure",
     "arch_pattern": "Agentic",
-    "tech_components": ["claude-api", "workflow-engine", "structured-output"],
+    "tech_components": [
+      "claude-api",
+      "workflow-engine",
+      "structured-output"
+    ],
     "cluster_id": 3,
     "cluster_label": "operational-automation",
     "enabler_candidate": true,
-    "scores": { "business_value": 6, "feasibility": 6 },
-    "links": { "pitch_url": null, "repo_url": null, "docs_url": null },
+    "scores": {
+      "business_value": 6,
+      "feasibility": 6
+    },
+    "links": {
+      "pitch_url": null,
+      "repo_url": null,
+      "docs_url": null
+    },
     "transcript": null,
-    "processed_at": "2026-03-14T12:00:00Z"
+    "processed_at": "2026-03-14T12:00:00Z",
+    "upvotes": 5,
+    "issue_url": null
   },
   {
     "id": "af26-010",
     "issue_number": null,
     "source": "ai-factory-2026",
     "title": "Customer Onboarding Accelerator",
-    "submitted_by": "Elsa Björk",
+    "submitted_by": "Elsa Bj\u00f6rk",
     "contact_email": "elsa.bjork@seb.se",
     "business_stakeholder": "Gustav Svensson",
     "submitted_at": "2026-03-07",
@@ -240,21 +362,36 @@
     "business_value": "Faster time-to-revenue for new corporate clients, improved customer experience, and reduced onboarding cost per client.",
     "strategic_area": "Customer Service",
     "arch_pattern": "Agentic",
-    "tech_components": ["pdf-extraction", "ocr", "claude-api", "workflow-engine", "structured-output"],
+    "tech_components": [
+      "pdf-extraction",
+      "ocr",
+      "claude-api",
+      "workflow-engine",
+      "structured-output"
+    ],
     "cluster_id": 2,
     "cluster_label": "customer-experience",
     "enabler_candidate": true,
-    "scores": { "business_value": 8, "feasibility": 4 },
-    "links": { "pitch_url": "https://confluence.seb.se/ai-factory/pitch/af26-010", "repo_url": null, "docs_url": null },
+    "scores": {
+      "business_value": 8,
+      "feasibility": 4
+    },
+    "links": {
+      "pitch_url": "https://confluence.seb.se/ai-factory/pitch/af26-010",
+      "repo_url": null,
+      "docs_url": null
+    },
     "transcript": null,
-    "processed_at": "2026-03-14T12:00:00Z"
+    "processed_at": "2026-03-14T12:00:00Z",
+    "upvotes": 8,
+    "issue_url": null
   },
   {
     "id": "af26-011",
     "issue_number": null,
     "source": "ai-factory-2026",
     "title": "Credit Risk Early Warning System",
-    "submitted_by": "Karl Hedström",
+    "submitted_by": "Karl Hedstr\u00f6m",
     "contact_email": "karl.hedstrom@seb.se",
     "business_stakeholder": "Ingrid Dahl",
     "submitted_at": "2026-03-07",
@@ -265,21 +402,35 @@
     "business_value": "Reduced credit losses, proactive portfolio management, and improved regulatory capital efficiency.",
     "strategic_area": "Credit",
     "arch_pattern": "Traditional ML",
-    "tech_components": ["time-series", "anomaly-detection", "nlp", "structured-output"],
+    "tech_components": [
+      "time-series",
+      "anomaly-detection",
+      "nlp",
+      "structured-output"
+    ],
     "cluster_id": 1,
     "cluster_label": "risk-detection",
     "enabler_candidate": true,
-    "scores": { "business_value": 9, "feasibility": 5 },
-    "links": { "pitch_url": null, "repo_url": null, "docs_url": null },
+    "scores": {
+      "business_value": 9,
+      "feasibility": 5
+    },
+    "links": {
+      "pitch_url": null,
+      "repo_url": null,
+      "docs_url": null
+    },
     "transcript": null,
-    "processed_at": "2026-03-14T12:00:00Z"
+    "processed_at": "2026-03-14T12:00:00Z",
+    "upvotes": 1,
+    "issue_url": null
   },
   {
     "id": "af26-012",
     "issue_number": null,
     "source": "ai-factory-2026",
     "title": "Trade Reconciliation Anomaly Detector",
-    "submitted_by": "Filippa Ström",
+    "submitted_by": "Filippa Str\u00f6m",
     "contact_email": "filippa.strom@seb.se",
     "business_stakeholder": "Anders Wallin",
     "submitted_at": "2026-03-08",
@@ -290,23 +441,36 @@
     "business_value": "Reduced settlement failures and penalties, lower operational risk, and freed-up operations staff for higher-value tasks.",
     "strategic_area": "Operations",
     "arch_pattern": "Traditional ML",
-    "tech_components": ["anomaly-detection", "time-series", "structured-output"],
+    "tech_components": [
+      "anomaly-detection",
+      "time-series",
+      "structured-output"
+    ],
     "cluster_id": 1,
     "cluster_label": "risk-detection",
     "enabler_candidate": true,
-    "scores": { "business_value": 7, "feasibility": 6 },
-    "links": { "pitch_url": null, "repo_url": null, "docs_url": null },
+    "scores": {
+      "business_value": 7,
+      "feasibility": 6
+    },
+    "links": {
+      "pitch_url": null,
+      "repo_url": null,
+      "docs_url": null
+    },
     "transcript": null,
-    "processed_at": "2026-03-14T12:00:00Z"
+    "processed_at": "2026-03-14T12:00:00Z",
+    "upvotes": 6,
+    "issue_url": null
   },
   {
     "id": "af26-013",
     "issue_number": null,
     "source": "ai-factory-2026",
     "title": "ESG Data Extraction Pipeline",
-    "submitted_by": "Vera Engström",
+    "submitted_by": "Vera Engstr\u00f6m",
     "contact_email": "vera.engstrom@seb.se",
-    "business_stakeholder": "Björn Lindberg",
+    "business_stakeholder": "Bj\u00f6rn Lindberg",
     "submitted_at": "2026-03-08",
     "status": "Under review",
     "summary": "Extract ESG metrics and sustainability data from corporate reports, filings, and third-party sources into a structured data warehouse.",
@@ -315,21 +479,36 @@
     "business_value": "Reliable ESG data for investment decisions, regulatory compliance with SFDR requirements, and competitive advantage in sustainable finance.",
     "strategic_area": "Wealth Management",
     "arch_pattern": "RAG",
-    "tech_components": ["pdf-extraction", "ocr", "claude-api", "structured-output", "embeddings"],
+    "tech_components": [
+      "pdf-extraction",
+      "ocr",
+      "claude-api",
+      "structured-output",
+      "embeddings"
+    ],
     "cluster_id": 0,
     "cluster_label": "document-intelligence",
     "enabler_candidate": true,
-    "scores": { "business_value": 7, "feasibility": 5 },
-    "links": { "pitch_url": null, "repo_url": null, "docs_url": null },
+    "scores": {
+      "business_value": 7,
+      "feasibility": 5
+    },
+    "links": {
+      "pitch_url": null,
+      "repo_url": null,
+      "docs_url": null
+    },
     "transcript": null,
-    "processed_at": "2026-03-14T12:00:00Z"
+    "processed_at": "2026-03-14T12:00:00Z",
+    "upvotes": 0,
+    "issue_url": null
   },
   {
     "id": "af26-014",
     "issue_number": null,
     "source": "ai-factory-2026",
     "title": "Contract Clause Analyzer",
-    "submitted_by": "Oskar Hellström",
+    "submitted_by": "Oskar Hellstr\u00f6m",
     "contact_email": "oskar.hellstrom@seb.se",
     "business_stakeholder": "Maria Gustafsson",
     "submitted_at": "2026-03-09",
@@ -340,21 +519,35 @@
     "business_value": "Reduced legal risk, faster contract turnaround, and better resource allocation in the legal department.",
     "strategic_area": "Risk & Compliance",
     "arch_pattern": "Inference",
-    "tech_components": ["pdf-extraction", "claude-api", "nlp", "structured-output"],
+    "tech_components": [
+      "pdf-extraction",
+      "claude-api",
+      "nlp",
+      "structured-output"
+    ],
     "cluster_id": 0,
     "cluster_label": "document-intelligence",
     "enabler_candidate": true,
-    "scores": { "business_value": 7, "feasibility": 5 },
-    "links": { "pitch_url": null, "repo_url": null, "docs_url": null },
+    "scores": {
+      "business_value": 7,
+      "feasibility": 5
+    },
+    "links": {
+      "pitch_url": null,
+      "repo_url": null,
+      "docs_url": null
+    },
     "transcript": null,
-    "processed_at": "2026-03-14T12:00:00Z"
+    "processed_at": "2026-03-14T12:00:00Z",
+    "upvotes": 0,
+    "issue_url": null
   },
   {
     "id": "af26-015",
     "issue_number": null,
     "source": "ai-factory-2026",
     "title": "IT Incident Root Cause Analyzer",
-    "submitted_by": "Martin Sjöberg",
+    "submitted_by": "Martin Sj\u00f6berg",
     "contact_email": "martin.sjoberg@seb.se",
     "business_stakeholder": "Therese Krantz",
     "submitted_at": "2026-03-09",
@@ -365,14 +558,28 @@
     "business_value": "Reduced mean time to resolution, fewer recurring incidents, and improved IT service reliability.",
     "strategic_area": "IT & Infrastructure",
     "arch_pattern": "Agentic",
-    "tech_components": ["nlp", "claude-api", "knowledge-graph", "workflow-engine"],
+    "tech_components": [
+      "nlp",
+      "claude-api",
+      "knowledge-graph",
+      "workflow-engine"
+    ],
     "cluster_id": 3,
     "cluster_label": "operational-automation",
     "enabler_candidate": true,
-    "scores": { "business_value": 6, "feasibility": 4 },
-    "links": { "pitch_url": null, "repo_url": null, "docs_url": null },
+    "scores": {
+      "business_value": 6,
+      "feasibility": 4
+    },
+    "links": {
+      "pitch_url": null,
+      "repo_url": null,
+      "docs_url": null
+    },
     "transcript": null,
-    "processed_at": "2026-03-14T12:00:00Z"
+    "processed_at": "2026-03-14T12:00:00Z",
+    "upvotes": 0,
+    "issue_url": null
   },
   {
     "id": "af26-016",
@@ -390,21 +597,35 @@
     "business_value": "Early detection of customer dissatisfaction, data-driven service improvements, and proactive retention of at-risk customers.",
     "strategic_area": "Customer Service",
     "arch_pattern": "Multimodal",
-    "tech_components": ["nlp", "speech-to-text", "claude-api", "structured-output"],
+    "tech_components": [
+      "nlp",
+      "speech-to-text",
+      "claude-api",
+      "structured-output"
+    ],
     "cluster_id": 2,
     "cluster_label": "customer-experience",
     "enabler_candidate": true,
-    "scores": { "business_value": 6, "feasibility": 5 },
-    "links": { "pitch_url": null, "repo_url": null, "docs_url": null },
+    "scores": {
+      "business_value": 6,
+      "feasibility": 5
+    },
+    "links": {
+      "pitch_url": null,
+      "repo_url": null,
+      "docs_url": null
+    },
     "transcript": null,
-    "processed_at": "2026-03-14T12:00:00Z"
+    "processed_at": "2026-03-14T12:00:00Z",
+    "upvotes": 1,
+    "issue_url": null
   },
   {
     "id": "af26-017",
     "issue_number": null,
     "source": "ai-factory-2026",
     "title": "Payment Anomaly Detection",
-    "submitted_by": "Axel Grundström",
+    "submitted_by": "Axel Grundstr\u00f6m",
     "contact_email": "axel.grundstrom@seb.se",
     "business_stakeholder": "Cecilia Blom",
     "submitted_at": "2026-03-10",
@@ -415,14 +636,27 @@
     "business_value": "Improved AML/sanctions compliance, reduced financial crime losses, and lower alert investigation costs.",
     "strategic_area": "Payments",
     "arch_pattern": "Traditional ML",
-    "tech_components": ["anomaly-detection", "time-series", "knowledge-graph"],
+    "tech_components": [
+      "anomaly-detection",
+      "time-series",
+      "knowledge-graph"
+    ],
     "cluster_id": 1,
     "cluster_label": "risk-detection",
     "enabler_candidate": true,
-    "scores": { "business_value": 9, "feasibility": 5 },
-    "links": { "pitch_url": "https://confluence.seb.se/ai-factory/pitch/af26-017", "repo_url": null, "docs_url": null },
+    "scores": {
+      "business_value": 9,
+      "feasibility": 5
+    },
+    "links": {
+      "pitch_url": "https://confluence.seb.se/ai-factory/pitch/af26-017",
+      "repo_url": null,
+      "docs_url": null
+    },
     "transcript": null,
-    "processed_at": "2026-03-14T12:00:00Z"
+    "processed_at": "2026-03-14T12:00:00Z",
+    "upvotes": 3,
+    "issue_url": null
   },
   {
     "id": "af26-018",
@@ -431,7 +665,7 @@
     "title": "Wealth Advisory Copilot",
     "submitted_by": "Ida Nordin",
     "contact_email": "ida.nordin@seb.se",
-    "business_stakeholder": "Stefan Åkesson",
+    "business_stakeholder": "Stefan \u00c5kesson",
     "submitted_at": "2026-03-11",
     "status": "New idea",
     "summary": "AI copilot for private bankers that prepares client meeting briefs, suggests investment themes, and drafts personalized advisory notes.",
@@ -440,14 +674,29 @@
     "business_value": "Increased revenue per advisor, better client experience through more personalized interactions, and scalable wealth management services.",
     "strategic_area": "Wealth Management",
     "arch_pattern": "Agentic",
-    "tech_components": ["claude-api", "embeddings", "vector-db", "structured-output", "workflow-engine"],
+    "tech_components": [
+      "claude-api",
+      "embeddings",
+      "vector-db",
+      "structured-output",
+      "workflow-engine"
+    ],
     "cluster_id": 2,
     "cluster_label": "customer-experience",
     "enabler_candidate": true,
-    "scores": { "business_value": 8, "feasibility": 4 },
-    "links": { "pitch_url": null, "repo_url": null, "docs_url": null },
+    "scores": {
+      "business_value": 8,
+      "feasibility": 4
+    },
+    "links": {
+      "pitch_url": null,
+      "repo_url": null,
+      "docs_url": null
+    },
     "transcript": null,
-    "processed_at": "2026-03-14T12:00:00Z"
+    "processed_at": "2026-03-14T12:00:00Z",
+    "upvotes": 8,
+    "issue_url": null
   },
   {
     "id": "af26-019",
@@ -465,13 +714,26 @@
     "business_value": "Competitive pricing for clients, increased payment volumes, and improved margins on cross-border transactions.",
     "strategic_area": "Payments",
     "arch_pattern": "Inference",
-    "tech_components": ["time-series", "structured-output", "workflow-engine"],
+    "tech_components": [
+      "time-series",
+      "structured-output",
+      "workflow-engine"
+    ],
     "cluster_id": 3,
     "cluster_label": "operational-automation",
     "enabler_candidate": false,
-    "scores": { "business_value": 7, "feasibility": 3 },
-    "links": { "pitch_url": null, "repo_url": null, "docs_url": null },
+    "scores": {
+      "business_value": 7,
+      "feasibility": 3
+    },
+    "links": {
+      "pitch_url": null,
+      "repo_url": null,
+      "docs_url": null
+    },
     "transcript": null,
-    "processed_at": "2026-03-14T12:00:00Z"
+    "processed_at": "2026-03-14T12:00:00Z",
+    "upvotes": 0,
+    "issue_url": null
   }
 ]

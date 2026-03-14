@@ -124,7 +124,11 @@ function getFilteredIdeas() {
 
 function getSortedIdeas(ideas) {
     var sorted = ideas.slice();
-    if (sortBy === 'value_desc') {
+    if (sortBy === 'votes_desc') {
+        sorted.sort(function (a, b) {
+            return (b.upvotes || 0) - (a.upvotes || 0);
+        });
+    } else if (sortBy === 'value_desc') {
         sorted.sort(function (a, b) {
             var av = (a.scores && a.scores.business_value) || 0;
             var bv = (b.scores && b.scores.business_value) || 0;
@@ -610,6 +614,19 @@ function buildCard(idea) {
 
     footer.appendChild(contactInfo);
 
+    // Upvote button
+    var upvoteCount = idea.upvotes || 0;
+    var upvoteEl = document.createElement('a');
+    upvoteEl.className = 'upvote-btn' + (upvoteCount > 0 ? ' has-votes' : '');
+    upvoteEl.title = idea.issue_url ? 'Vote with a thumbs-up on the GitHub Issue' : 'Upvotes';
+    if (idea.issue_url) {
+        upvoteEl.href = idea.issue_url;
+        upvoteEl.target = '_blank';
+        upvoteEl.rel = 'noopener';
+    }
+    upvoteEl.innerHTML = '<span class="upvote-icon">&#9650;</span><span class="upvote-count">' + upvoteCount + '</span>';
+    footer.appendChild(upvoteEl);
+
     if (idea.cluster_label) {
         var clusterTag = document.createElement('span');
         clusterTag.className = 'cluster-tag';
@@ -636,7 +653,7 @@ function getInitials(name) {
 function getStatusClass(status) {
     if (!status) return 'badge-new';
     var s = status.toLowerCase();
-    if (s === 'in production') return 'badge-prod';
+    if (s === 'in production' || s === 'in prod') return 'badge-prod';
     if (s === 'in development') return 'badge-dev';
     if (s === 'under review') return 'badge-review';
     return 'badge-new';

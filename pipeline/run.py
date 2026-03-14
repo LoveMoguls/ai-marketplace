@@ -30,7 +30,7 @@ def fetch_issues(repo: str, token: str) -> list[dict]:
     while True:
         resp = requests.get(
             f"https://api.github.com/repos/{repo}/issues",
-            headers={"Authorization": f"token {token}", "Accept": "application/vnd.github.v3+json"},
+            headers={"Authorization": f"token {token}", "Accept": "application/vnd.github.v3.full+json"},
             params={"labels": "idea", "state": "all", "per_page": 100, "page": page},
         )
         resp.raise_for_status()
@@ -121,6 +121,8 @@ def process_issue(issue: dict, source: str, dry_run: bool = False) -> dict:
             "docs_url": fields.get("docs_url"),
         },
         "transcript": extra_context,
+        "upvotes": issue.get("reactions", {}).get("+1", 0),
+        "issue_url": issue.get("html_url"),
         "processed_at": datetime.now(timezone.utc).isoformat(),
     }
 
@@ -148,6 +150,8 @@ def sync_issue(issue: dict, existing_idea: dict) -> dict:
         "repo_url": fields.get("repo_url") or existing_idea.get("links", {}).get("repo_url"),
         "docs_url": fields.get("docs_url") or existing_idea.get("links", {}).get("docs_url"),
     }
+    existing_idea["upvotes"] = issue.get("reactions", {}).get("+1", 0)
+    existing_idea["issue_url"] = issue.get("html_url") or existing_idea.get("issue_url")
     existing_idea["processed_at"] = datetime.now(timezone.utc).isoformat()
 
     return existing_idea

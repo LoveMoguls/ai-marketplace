@@ -553,6 +553,47 @@ header h1 {
     white-space: nowrap;
 }
 
+/* === Upvote Button === */
+.upvote-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    line-height: 1;
+    transition: all 0.15s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.upvote-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: var(--primary-light);
+}
+
+.upvote-btn.has-votes {
+    color: var(--primary);
+    border-color: var(--primary);
+    background: var(--primary-light);
+}
+
+.upvote-icon {
+    font-size: 0.6rem;
+    line-height: 1;
+}
+
+.upvote-count {
+    font-weight: 700;
+    font-size: 0.78rem;
+}
+
 /* === Cluster View === */
 .cluster-section {
     margin-bottom: 32px;
