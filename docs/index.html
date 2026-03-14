@@ -1,51 +1,594 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Opportunities & Enablers</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Opportunities & Enablers — SEB CIO Tech Hub</title>
+<link rel="stylesheet" href="style.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* === Landing Page Styles === */
+.landing {
+  font-family: 'DM Sans', sans-serif;
+  background: #faf8f4;
+  color: #14130f;
+  line-height: 1.6;
+}
+
+.hero {
+  padding: 72px 40px 56px;
+  max-width: 780px;
+  margin: 0 auto;
+  border-bottom: 1px solid #e8e4da;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #9a9690;
+  margin-bottom: 28px;
+}
+
+.eyebrow-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #1a7a56;
+}
+
+.landing h1 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(36px, 5vw, 54px);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -.02em;
+  color: #14130f;
+  margin-bottom: 20px;
+}
+
+.landing h1 em {
+  font-style: italic;
+  color: #1a7a56;
+}
+
+.landing .tagline {
+  font-size: 17px;
+  font-weight: 300;
+  color: #4a4840;
+  max-width: 560px;
+  line-height: 1.65;
+  margin-bottom: 36px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: #14130f;
+  color: #faf8f4;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: .01em;
+  transition: opacity .15s;
+  font-family: 'DM Sans', sans-serif;
+}
+.btn-primary:hover { opacity: .8; }
+
+.btn-secondary {
+  color: #4a4840;
+  font-size: 13px;
+  font-weight: 400;
+  text-decoration: none;
+  border-bottom: 1px solid #e8e4da;
+  padding-bottom: 1px;
+}
+
+.landing-stat-row {
+  display: flex;
+  gap: 32px;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid #e8e4da;
+}
+
+.landing-stat-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 32px;
+  line-height: 1;
+  color: #14130f;
+  margin-bottom: 4px;
+}
+.landing-stat-label {
+  font-size: 12px;
+  color: #9a9690;
+  font-weight: 400;
+}
+
+.landing-content {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 40px 80px;
+}
+
+.landing-section {
+  margin-top: 56px;
+}
+
+.landing-section-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #9a9690;
+  margin-bottom: 20px;
+}
+
+.parts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.part {
+  background: #fff;
+  border: 1px solid #e8e4da;
+  border-radius: 10px;
+  padding: 24px;
+}
+
+.part-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 13px;
+  color: #9a9690;
+  margin-bottom: 12px;
+}
+
+.part h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.part p {
+  font-size: 13px;
+  color: #4a4840;
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+
+.part-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 0;
+}
+
+.part-features li {
+  font-size: 12px;
+  color: #4a4840;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.part-features li::before {
+  content: '\2192';
+  color: #9a9690;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.flow {
+  background: #fff;
+  border: 1px solid #e8e4da;
+  border-radius: 10px;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+}
+
+.flow-step {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 120px;
+}
+
+.flow-step-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #9a9690;
+}
+
+.flow-step-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #14130f;
+}
+
+.flow-step-sub {
+  font-size: 11px;
+  color: #9a9690;
+  line-height: 1.4;
+}
+
+.flow-arrow {
+  flex-shrink: 0;
+  padding: 0 20px;
+  color: #e8e4da;
+  font-size: 20px;
+}
+
+.roadmap {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: #e8e4da;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #e8e4da;
+}
+
+.phase {
+  background: #fff;
+  display: grid;
+  grid-template-columns: 120px 1fr 120px;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 24px;
+}
+
+.phase-name {
+  font-size: 12px;
+  font-weight: 500;
+  color: #14130f;
+}
+
+.phase-desc {
+  font-size: 12px;
+  color: #4a4840;
+}
+
+.phase-status {
+  font-size: 11px;
+  font-weight: 500;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.s-done   { color: #1a7a56; }
+.s-active { color: #b85c1a; }
+.s-next   { color: #1a4f8a; }
+.s-later  { color: #9a9690; }
+
+.principles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.principle {
+  padding: 18px;
+  background: #fff;
+  border: 1px solid #e8e4da;
+  border-radius: 10px;
+}
+
+.principle-icon {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.principle h4 {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.principle p {
+  font-size: 12px;
+  color: #4a4840;
+  line-height: 1.55;
+}
+
+.pitch-footer {
+  border-top: 1px solid #e8e4da;
+  padding: 28px 40px;
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-tag {
+  font-size: 12px;
+  color: #9a9690;
+}
+
+.footer-tag strong {
+  color: #14130f;
+  font-weight: 500;
+}
+
+.footer-link {
+  font-size: 12px;
+  color: #4a4840;
+  text-decoration: none;
+  border-bottom: 1px solid #e8e4da;
+  padding-bottom: 1px;
+}
+
+/* Divider between landing and marketplace */
+.marketplace-divider {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 60px 40px 0;
+  text-align: center;
+}
+
+.marketplace-divider h2 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: #14130f;
+  margin-bottom: 8px;
+}
+
+.marketplace-divider p {
+  font-size: 14px;
+  color: #9a9690;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 640px) {
+  .hero, .landing-content, .pitch-footer { padding-left: 20px; padding-right: 20px; }
+  .parts, .principles { grid-template-columns: 1fr; }
+  .phase { grid-template-columns: 1fr; gap: 4px; }
+  .phase-status { text-align: left; }
+  .landing-stat-row { gap: 20px; flex-wrap: wrap; }
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>AI Opportunities & Enablers</h1>
-            <p class="tagline">Discover, filter, and explore AI ideas across the organization</p>
-        </header>
 
-        <div class="stats-bar" id="stats-bar">
-            <!-- Rendered by app.js -->
+<!-- ==================== LANDING PAGE ==================== -->
+<div class="landing">
+
+<div class="hero">
+  <div class="eyebrow">
+    <span class="eyebrow-dot"></span>
+    SEB CIO Tech Hub &nbsp;&middot;&nbsp; Internal tool
+  </div>
+
+  <h1>Where AI ideas go<br>to <em>become enablers</em></h1>
+
+  <p class="tagline">
+    We generate great AI ideas — from hackathons, team experiments, and daily work.
+    This tool captures them, clusters them, and surfaces the best ones in a
+    shared marketplace anyone at SEB can browse.
+  </p>
+
+  <div class="hero-actions">
+    <a class="btn-primary" href="https://github.com/LoveMoguls/ai-marketplace/issues/new?template=idea-submission.yml">Submit an idea &rarr;</a>
+    <a class="btn-secondary" href="#marketplace">Browse the marketplace</a>
+  </div>
+
+  <div class="landing-stat-row">
+    <div class="stat">
+      <div class="landing-stat-num" id="landing-total">19</div>
+      <div class="landing-stat-label">Ideas captured</div>
+    </div>
+    <div class="stat">
+      <div class="landing-stat-num" id="landing-areas">7</div>
+      <div class="landing-stat-label">Strategic areas covered</div>
+    </div>
+    <div class="stat">
+      <div class="landing-stat-num">0</div>
+      <div class="landing-stat-label">Infrastructure needed to start</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="landing-content">
+
+  <!-- TWO PARTS -->
+  <div class="landing-section">
+    <p class="landing-section-label">How it works</p>
+    <div class="parts">
+
+      <div class="part">
+        <p class="part-num">01</p>
+        <h3>Intake</h3>
+        <p>Anyone at SEB can submit an idea — through a structured GitHub Issue form. Pitch recordings from hackathons get processed automatically.</p>
+        <ul class="part-features">
+          <li>Structured form: problem, hypothesis, business value, domain</li>
+          <li>Links to pitch video, repo, docs — added anytime</li>
+          <li>MP4 pitch recordings transcribed with AI</li>
+          <li>Contact person always visible — ideas have owners</li>
+        </ul>
+      </div>
+
+      <div class="part">
+        <p class="part-num">02</p>
+        <h3>Marketplace</h3>
+        <p>A clean, browsable site where all processed ideas are presented as cards — filterable by domain, status, tech pattern, and more.</p>
+        <ul class="part-features">
+          <li>Two reading modes: Business view and Engineering view</li>
+          <li>Filter by domain, arch pattern, status, score</li>
+          <li>Cluster view — ideas grouped by theme</li>
+          <li>Upvote ideas you want to see built</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FLOW -->
+  <div class="landing-section">
+    <p class="landing-section-label">The pipeline</p>
+    <div class="flow">
+      <div class="flow-step">
+        <span class="flow-step-label">Intake</span>
+        <span class="flow-step-title">GitHub Issue</span>
+        <span class="flow-step-sub">Text form or<br>MP4 pitch</span>
+      </div>
+      <span class="flow-arrow">&rsaquo;</span>
+      <div class="flow-step">
+        <span class="flow-step-label">AI pipeline</span>
+        <span class="flow-step-title">Transcribe</span>
+        <span class="flow-step-sub">Whisper turns<br>speech to text</span>
+      </div>
+      <span class="flow-arrow">&rsaquo;</span>
+      <div class="flow-step">
+        <span class="flow-step-label">AI pipeline</span>
+        <span class="flow-step-title">Extract</span>
+        <span class="flow-step-sub">Claude scores,<br>tags, summarizes</span>
+      </div>
+      <span class="flow-arrow">&rsaquo;</span>
+      <div class="flow-step">
+        <span class="flow-step-label">AI pipeline</span>
+        <span class="flow-step-title">Cluster</span>
+        <span class="flow-step-sub">Groups ideas,<br>finds enablers</span>
+      </div>
+      <span class="flow-arrow">&rsaquo;</span>
+      <div class="flow-step">
+        <span class="flow-step-label">Output</span>
+        <span class="flow-step-title">Marketplace</span>
+        <span class="flow-step-sub">GitHub Pages,<br>live instantly</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROADMAP -->
+  <div class="landing-section">
+    <p class="landing-section-label">Roadmap</p>
+    <div class="roadmap">
+      <div class="phase">
+        <span class="phase-name">Phase 0</span>
+        <span class="phase-desc">Repo structure, data model, GitHub Issue template, card design</span>
+        <span class="phase-status s-done">&check; Done</span>
+      </div>
+      <div class="phase">
+        <span class="phase-name">Phase 1</span>
+        <span class="phase-desc">AI pipeline — transcription, Claude extraction, clustering, JSON output</span>
+        <span class="phase-status s-done">&check; Done</span>
+      </div>
+      <div class="phase">
+        <span class="phase-name">Phase 2</span>
+        <span class="phase-desc">Marketplace live on GitHub Pages — filter, search, cluster view</span>
+        <span class="phase-status s-done">&check; Done</span>
+      </div>
+      <div class="phase">
+        <span class="phase-name">Phase 3</span>
+        <span class="phase-desc">Process all 50 Hackathon 010 pitches as first real run</span>
+        <span class="phase-status s-active">&#9656; Up next</span>
+      </div>
+      <div class="phase">
+        <span class="phase-name">Phase 4</span>
+        <span class="phase-desc">GCP integration — move pipeline to Cloud Run, webhook-triggered</span>
+        <span class="phase-status s-later">Planned</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRINCIPLES -->
+  <div class="landing-section">
+    <p class="landing-section-label">Design principles</p>
+    <div class="principles">
+      <div class="principle">
+        <div class="principle-icon">&#11041;</div>
+        <h4>No infrastructure in phase 1</h4>
+        <p>GitHub Issues as intake. Local pipeline. GitHub Pages as output. Zero hosting cost, zero GCP dependency.</p>
+      </div>
+      <div class="principle">
+        <div class="principle-icon">&#11041;</div>
+        <h4>Ideas have owners</h4>
+        <p>Every idea shows who submitted it and how to reach them. Good ideas should have a face.</p>
+      </div>
+      <div class="principle">
+        <div class="principle-icon">&#11041;</div>
+        <h4>Built for two audiences</h4>
+        <p>Business view for C-level and domain leads. Engineering view for architects and developers. Same card, two lenses.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="pitch-footer">
+  <span class="footer-tag">Built by <strong>SEB CIO Tech Hub</strong> &nbsp;&middot;&nbsp; March 2026</span>
+  <a class="footer-link" href="https://github.com/LoveMoguls/ai-marketplace">View the repo &rarr;</a>
+</div>
+
+</div><!-- end .landing -->
+
+<!-- ==================== MARKETPLACE ==================== -->
+<div id="marketplace" class="marketplace-divider">
+  <h2>The Marketplace</h2>
+  <p>Browse, filter, and upvote AI ideas across the organization</p>
+</div>
+
+<div class="container">
+    <div class="stats-bar" id="stats-bar"></div>
+
+    <div class="controls">
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search ideas by title, summary, or problem..." class="search-input">
         </div>
 
-        <div class="controls">
-            <div class="search-container">
-                <input type="text" id="search-input" placeholder="Search ideas by title, summary, or problem..." class="search-input">
-            </div>
+        <div class="filter-bar" id="filter-bar"></div>
 
-            <div class="filter-bar" id="filter-bar">
-                <!-- Rendered by app.js -->
+        <div class="controls-row">
+            <div class="view-toggle">
+                <button class="view-btn active" data-view="grid">Grid</button>
+                <button class="view-btn" data-view="cluster">Clusters</button>
             </div>
-
-            <div class="controls-row">
-                <div class="view-toggle">
-                    <button class="view-btn active" data-view="grid">Grid</button>
-                    <button class="view-btn" data-view="cluster">Clusters</button>
-                </div>
-                <select id="sort-select" class="sort-select">
-                    <option value="value_desc">Highest Value</option>
-                    <option value="votes_desc">Most Voted</option>
-                    <option value="date_desc">Newest First</option>
-                    <option value="alpha">A &rarr; Z</option>
-                </select>
-            </div>
+            <select id="sort-select" class="sort-select">
+                <option value="value_desc">Highest Value</option>
+                <option value="votes_desc">Most Voted</option>
+                <option value="date_desc">Newest First</option>
+                <option value="alpha">A &rarr; Z</option>
+            </select>
         </div>
-
-        <main id="cards-container">
-            <!-- Rendered by app.js -->
-        </main>
     </div>
 
-    <script src="app.js"></script>
+    <main id="cards-container"></main>
+</div>
+
+<script src="app.js"></script>
+<script>
+// Update landing stats from loaded data
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+        if (allIdeas && allIdeas.length > 0) {
+            document.getElementById('landing-total').textContent = allIdeas.length;
+            var areas = new Set(allIdeas.map(function(i) { return i.strategic_area; }).filter(Boolean));
+            document.getElementById('landing-areas').textContent = areas.size;
+        }
+    }, 500);
+});
+</script>
 </body>
 </html>
-<!-- deployed -->
