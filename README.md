@@ -108,6 +108,35 @@ Supported formats: **MP4** (video), **PDF**, **DOCX**, **PPTX**. If both a video
 
 ---
 
+## Batch importing pitch recordings
+
+Have a folder of MP4 pitch recordings? Import them all at once:
+
+```bash
+# Basic import — transcribe + extract + cluster
+python -m pipeline.import_pitches /path/to/pitches/ --source hackathon-010
+
+# Also create GitHub Issues for each (so they're editable later)
+python -m pipeline.import_pitches /path/to/pitches/ --source hackathon-010 --create-issues
+
+# Then push to deploy
+git add data/
+git commit -m "import: hackathon-010 pitches"
+git push
+```
+
+**What it does for each MP4:**
+1. Transcribes with Whisper
+2. Sends transcript to Claude which extracts: title, problem, hypothesis, business value, strategic area, arch pattern, tech components, scores
+3. Adds to ideas.json with a unique ID (e.g. `hackathon-010-001`)
+4. After all files: clusters everything and detects enablers
+
+**With `--create-issues`:** Also creates a GitHub Issue for each idea, so you can edit fields, change status, and collect upvotes later. The auto-pipeline will keep them in sync.
+
+Files can be named anything (e.g. `team-alpha-pitch.mp4`, `idea-003.mp4`). They're processed alphabetically.
+
+---
+
 ## Deploying to the live site
 
 After running the pipeline, push the updated data:
