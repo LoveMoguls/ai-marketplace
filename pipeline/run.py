@@ -71,14 +71,16 @@ def process_issue(issue: dict, source: str, dry_run: bool = False) -> dict:
             if doc_text:
                 break
 
-    # Combine transcript and document text
-    extra_context = None
-    if transcript and doc_text:
-        extra_context = f"{transcript}\n\n--- Document content ---\n\n{doc_text}"
-    elif transcript:
-        extra_context = transcript
-    elif doc_text:
-        extra_context = doc_text
+    # Combine all extra context: transcript, document, pasted text
+    context_parts = []
+    if transcript:
+        context_parts.append(f"--- Pitch transcript ---\n\n{transcript}")
+    if doc_text:
+        context_parts.append(f"--- Document content ---\n\n{doc_text}")
+    pasted_text = fields.get("extra_context")
+    if pasted_text:
+        context_parts.append(f"--- Additional details ---\n\n{pasted_text}")
+    extra_context = "\n\n".join(context_parts) if context_parts else None
 
     # Extraction
     if dry_run:

@@ -110,6 +110,15 @@ body:
     validations:
       required: true
 
+  - type: textarea
+    id: extra_context
+    attributes:
+      label: "Additional details"
+      description: "Paste any extra context here — slide content, meeting notes, technical details, or any text that helps explain the idea. You can also drag & drop images."
+      placeholder: "Paste text from your pitch deck, document, or notes..."
+    validations:
+      required: false
+
   - type: input
     id: pitch_url
     attributes:
@@ -128,5 +137,6 @@ body:
     id: docs_url
     attributes:
       label: "Documentation URL"
+      description: "Link to PDF, Google Doc, SharePoint, or any document"
     validations:
       required: false

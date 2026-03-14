@@ -20,6 +20,7 @@ HEADER_MAP: dict[str, str] = {
     "Business stakeholder": "business_stakeholder",
     "Tech components": "tech_components",
     "Source": "source",
+    "Additional details": "extra_context",
     "Pitch video URL": "pitch_url",
     "Repository URL": "repo_url",
     "Documentation URL": "docs_url",
