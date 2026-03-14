@@ -54,21 +54,22 @@ def process_issue(issue: dict, source: str, dry_run: bool = False) -> dict:
     body = issue.get("body", "") or ""
     fields = parse_issue_body(body)
 
-    # Transcription + document reading (lazy imports to avoid heavy deps in sync mode)
-    from pipeline.transcribe import transcribe
-    from pipeline.read_doc import read_document, SUPPORTED_EXTENSIONS
-
+    # Transcription + document reading (lazy imports, only when files exist)
     mp4_path = RAW_DIR / f"{issue_number}.mp4"
     transcript = None
     doc_text = None
-    if not dry_run:
+    if not dry_run and mp4_path.exists():
+        from pipeline.transcribe import transcribe
         transcript = transcribe(str(mp4_path))
+    if not dry_run:
         # Check for documents (PDF, DOCX, PPTX)
+        from pipeline.read_doc import SUPPORTED_EXTENSIONS, read_document
         for ext in SUPPORTED_EXTENSIONS:
             doc_path = RAW_DIR / f"{issue_number}{ext}"
-            doc_text = read_document(str(doc_path))
-            if doc_text:
-                break
+            if doc_path.exists():
+                doc_text = read_document(str(doc_path))
+                if doc_text:
+                    break
 
     # Combine all extra context: transcript, document, pasted text
     context_parts = []
