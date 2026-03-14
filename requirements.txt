@@ -6,3 +6,6 @@ requests
 python-dotenv
 numpy
 pytest
+pdfplumber
+python-docx
+python-pptx

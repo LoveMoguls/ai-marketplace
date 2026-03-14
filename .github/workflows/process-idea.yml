@@ -1,0 +1,59 @@
+name: Process Idea
+
+on:
+  issues:
+    types: [opened, edited, labeled]
+
+permissions:
+  contents: write
+  issues: read
+
+concurrency:
+  group: process-idea
+  cancel-in-progress: false
+
+jobs:
+  process:
+    # Only run for issues with the 'idea' label
+    if: contains(github.event.issue.labels.*.name, 'idea')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install anthropic requests python-dotenv sentence-transformers scikit-learn numpy
+
+      - name: Run pipeline
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPO: ${{ github.repository }}
+        run: |
+          ISSUE_NUM=${{ github.event.issue.number }}
+          EVENT=${{ github.event.action }}
+
+          if [ "$EVENT" = "opened" ]; then
+            echo "New idea — full pipeline for issue #$ISSUE_NUM"
+            python -m pipeline.run --issue "$ISSUE_NUM"
+          else
+            echo "Updated idea — syncing fields for issue #$ISSUE_NUM"
+            python -m pipeline.run --sync --issue "$ISSUE_NUM"
+          fi
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/ideas.json data/clusters.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "process: auto-update idea #${{ github.event.issue.number }}"
+            git push
+          fi

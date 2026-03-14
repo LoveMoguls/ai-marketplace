@@ -4,8 +4,11 @@ venv/
 __pycache__/
 *.pyc
 
-# Media
+# Media & documents
 raw/pitches/*.mp4
+raw/pitches/*.pdf
+raw/pitches/*.docx
+raw/pitches/*.pptx
 
 # OS
 .DS_Store

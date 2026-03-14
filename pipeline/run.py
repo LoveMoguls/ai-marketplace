@@ -12,6 +12,7 @@ from dotenv import load_dotenv
 
 from pipeline.parse_issue import parse_issue_body
 from pipeline.transcribe import transcribe
+from pipeline.read_doc import read_document, SUPPORTED_EXTENSIONS
 from pipeline.extract import extract_idea
 from pipeline.cluster import cluster_ideas
 
@@ -57,11 +58,27 @@ def process_issue(issue: dict, source: str, dry_run: bool = False) -> dict:
     body = issue.get("body", "") or ""
     fields = parse_issue_body(body)
 
-    # Transcription
+    # Transcription + document reading
     mp4_path = RAW_DIR / f"{issue_number}.mp4"
     transcript = None
+    doc_text = None
     if not dry_run:
         transcript = transcribe(str(mp4_path))
+        # Check for documents (PDF, DOCX, PPTX)
+        for ext in SUPPORTED_EXTENSIONS:
+            doc_path = RAW_DIR / f"{issue_number}{ext}"
+            doc_text = read_document(str(doc_path))
+            if doc_text:
+                break
+
+    # Combine transcript and document text
+    extra_context = None
+    if transcript and doc_text:
+        extra_context = f"{transcript}\n\n--- Document content ---\n\n{doc_text}"
+    elif transcript:
+        extra_context = transcript
+    elif doc_text:
+        extra_context = doc_text
 
     # Extraction
     if dry_run:
@@ -71,7 +88,7 @@ def process_issue(issue: dict, source: str, dry_run: bool = False) -> dict:
             "scores": {"business_value": 5, "feasibility": 5},
         }
     else:
-        enriched = extract_idea(fields, transcript)
+        enriched = extract_idea(fields, extra_context)
 
     idea_id = f"{source}-{issue_number:03d}" if source else f"issue-{issue_number:03d}"
 
@@ -101,14 +118,44 @@ def process_issue(issue: dict, source: str, dry_run: bool = False) -> dict:
             "repo_url": fields.get("repo_url"),
             "docs_url": fields.get("docs_url"),
         },
-        "transcript": transcript,
+        "transcript": extra_context,
         "processed_at": datetime.now(timezone.utc).isoformat(),
     }
+
+
+def sync_issue(issue: dict, existing_idea: dict) -> dict:
+    """Update human-editable fields from Issue without calling Claude.
+
+    Preserves AI-generated fields (summary, scores, cluster, transcript).
+    """
+    body = issue.get("body", "") or ""
+    fields = parse_issue_body(body)
+
+    existing_idea["title"] = fields.get("title") or issue.get("title", "").replace("[Idea] ", "")
+    existing_idea["submitted_by"] = fields.get("contact_name") or existing_idea.get("submitted_by")
+    existing_idea["contact_email"] = fields.get("contact_email") or existing_idea.get("contact_email")
+    existing_idea["business_stakeholder"] = fields.get("business_stakeholder") or existing_idea.get("business_stakeholder")
+    existing_idea["status"] = fields.get("status") or existing_idea.get("status", "New idea")
+    existing_idea["problem"] = fields.get("problem") or existing_idea.get("problem")
+    existing_idea["hypothesis"] = fields.get("hypothesis") or existing_idea.get("hypothesis")
+    existing_idea["business_value"] = fields.get("business_value") or existing_idea.get("business_value")
+    existing_idea["strategic_area"] = fields.get("strategic_area") or existing_idea.get("strategic_area")
+    existing_idea["tech_components"] = fields.get("tech_components") or existing_idea.get("tech_components", [])
+    existing_idea["links"] = {
+        "pitch_url": fields.get("pitch_url") or existing_idea.get("links", {}).get("pitch_url"),
+        "repo_url": fields.get("repo_url") or existing_idea.get("links", {}).get("repo_url"),
+        "docs_url": fields.get("docs_url") or existing_idea.get("links", {}).get("docs_url"),
+    }
+    existing_idea["processed_at"] = datetime.now(timezone.utc).isoformat()
+
+    return existing_idea
 
 
 def main():
     parser = argparse.ArgumentParser(description="Process AI idea submissions")
     parser.add_argument("--dry-run", action="store_true", help="Skip API calls, use mock data")
+    parser.add_argument("--sync", action="store_true", help="Sync human-editable fields from Issues without calling Claude")
+    parser.add_argument("--issue", type=int, help="Process or sync only this issue number")
     args = parser.parse_args()
 
     load_dotenv()
@@ -124,14 +171,33 @@ def main():
 
     issues = fetch_issues(repo, token)
     existing = load_existing_ideas()
-    existing_numbers = {idea["issue_number"] for idea in existing}
+    existing_map = {idea["issue_number"]: idea for idea in existing}
+
+    # Filter to specific issue if requested
+    if args.issue:
+        issues = [i for i in issues if i["number"] == args.issue]
+        if not issues:
+            logger.error("Issue #%d not found", args.issue)
+            sys.exit(1)
 
     new_count = 0
+    sync_count = 0
+
     for issue in issues:
-        if issue["number"] in existing_numbers:
+        num = issue["number"]
+
+        if num in existing_map:
+            if args.sync or args.issue:
+                # Update human-editable fields from Issue
+                sync_issue(issue, existing_map[num])
+                sync_count += 1
+                logger.info("Synced: %s", existing_map[num]["title"])
             continue
+
+        # New issue — full pipeline
         idea = process_issue(issue, source="github", dry_run=args.dry_run)
         existing.append(idea)
+        existing_map[idea["issue_number"]] = idea
         new_count += 1
         logger.info("Processed: %s", idea["title"])
 
@@ -156,8 +222,8 @@ def main():
         json.dump(clusters, f, indent=2)
 
     enabler_count = sum(1 for i in existing if i.get("enabler_candidate"))
-    logger.info("Done: %d total ideas (%d new), %d clusters, %d enabler candidates",
-                len(existing), new_count, len(clusters), enabler_count)
+    logger.info("Done: %d total ideas (%d new, %d synced), %d clusters, %d enabler candidates",
+                len(existing), new_count, sync_count, len(clusters), enabler_count)
 
 
 if __name__ == "__main__":
